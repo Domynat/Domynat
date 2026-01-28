@@ -1,0 +1,13 @@
+{
+  "CityName": "Domynat",
+  "Day": 1,
+  "Gold": 120,
+  "Resources": {
+    "Food": 40,
+    "Wood": 25,
+    "Stone": 15,
+    "Iron": 6,
+    "Textiles": 4,
+    "Livestock": 10
+  }
+}
