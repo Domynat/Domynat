@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Für Sedef 💖</title>
+  <title>Sedef</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -13,16 +13,33 @@
   <!-- schwebende Herzen im Hintergrund -->
   <div class="hearts-bg" id="heartsBg" aria-hidden="true"></div>
 
-  <main class="card" id="card">
-    <!-- Startansicht -->
+  <!-- Such-Bildschirm: sie tippt ihren Namen ein -->
+  <section class="search-screen" id="searchScreen">
+    <div class="search-logo">💖</div>
+    <p class="search-hint">Schreib deinen Namen…</p>
+    <form class="search-box" id="searchForm" autocomplete="off">
+      <span class="search-icon">🔍</span>
+      <input
+        type="text"
+        id="nameInput"
+        class="search-input"
+        placeholder="Hier tippen"
+        aria-label="Dein Name"
+      />
+    </form>
+    <p class="search-error hidden" id="searchError">Tipp einfach deinen Namen 😉</p>
+  </section>
+
+  <main class="card hidden" id="card">
+    <!-- Begrüßung -->
     <section class="screen screen--intro" id="introScreen">
       <div class="emoji-big">💌</div>
       <h1>Hey Sedef…</h1>
-      <p class="subtitle">Ich hab dir etwas Wichtiges zu sagen.</p>
+      <p class="subtitle">Du hast deinen Namen getippt – und genau dich meine ich. Ich hab dir etwas Wichtiges zu sagen.</p>
       <button class="btn btn--primary" id="startBtn">Lies weiter 💕</button>
     </section>
 
-    <!-- Frage-Ansicht -->
+    <!-- Frage -->
     <section class="screen screen--question hidden" id="questionScreen">
       <div class="emoji-big">🌹</div>
       <h1>Willst du meine Freundin sein?</h1>
@@ -33,12 +50,24 @@
       </div>
     </section>
 
-    <!-- Ja-Ansicht -->
+    <!-- Ja -->
     <section class="screen screen--yes hidden" id="yesScreen">
       <div class="emoji-big">🥳</div>
       <h1>Ich freu mich so sehr!</h1>
-      <p class="subtitle">Du machst mich zum glücklichsten Menschen. ❤️ Sedef &amp; ich.</p>
-      <div class="emoji-big">💑</div>
+      <p class="subtitle">Du machst mich zum glücklichsten Menschen der Welt. ❤️</p>
+      <button class="btn btn--primary" id="finalBtn">Aber das ist noch nicht alles… 💝</button>
+    </section>
+
+    <!-- Liebes-Botschaft am Ende -->
+    <section class="screen screen--final hidden" id="finalScreen">
+      <div class="emoji-big">💞</div>
+      <h1>Sedef…</h1>
+      <p class="love-text">
+        Ich wollte dich schon immer als meine Freundin haben.<br />
+        Ich liebe dich – von ganzem Herzen. ❤️<br /><br />
+        Und ich hab dir noch etwas zu geben…
+      </p>
+      <p class="look-up" id="lookUp">Jetzt schau mich an. 🥹💍</p>
     </section>
   </main>
 

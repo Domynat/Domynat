@@ -15,10 +15,34 @@ function spawnHeart() {
 }
 setInterval(spawnHeart, 500);
 
+// --- Such-Bildschirm: sie tippt ihren Namen ein ---
+const searchScreen = document.getElementById("searchScreen");
+const searchForm = document.getElementById("searchForm");
+const nameInput = document.getElementById("nameInput");
+const searchError = document.getElementById("searchError");
+const card = document.getElementById("card");
+
+// akzeptiert "sedef" (egal ob groß/klein geschrieben)
+const ACCEPTED_NAME = "sedef";
+
+nameInput.focus();
+
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const value = nameInput.value.trim().toLowerCase();
+  if (value === ACCEPTED_NAME) {
+    searchScreen.classList.add("hidden");
+    card.classList.remove("hidden");
+  } else {
+    searchError.classList.remove("hidden");
+  }
+});
+
 // --- Bildschirme wechseln ---
 const introScreen = document.getElementById("introScreen");
 const questionScreen = document.getElementById("questionScreen");
 const yesScreen = document.getElementById("yesScreen");
+const finalScreen = document.getElementById("finalScreen");
 
 document.getElementById("startBtn").addEventListener("click", () => {
   introScreen.classList.add("hidden");
@@ -41,14 +65,12 @@ const cheekyTexts = [
 let textIndex = 0;
 
 function dodge() {
-  // Button verkleinern, Ja-Button vergrößern
   noScale = Math.max(0.5, noScale - 0.12);
   textIndex = Math.min(cheekyTexts.length - 1, textIndex + 1);
   noBtn.textContent = cheekyTexts[textIndex];
 
   yesBtn.style.transform = `scale(${1 + (1 - noScale) * 1.4})`;
 
-  // an eine zufällige Stelle springen
   noBtn.classList.add("runaway");
   const maxX = window.innerWidth - noBtn.offsetWidth - 20;
   const maxY = window.innerHeight - noBtn.offsetHeight - 20;
@@ -69,6 +91,13 @@ noBtn.addEventListener("click", (e) => {
 yesBtn.addEventListener("click", () => {
   questionScreen.classList.add("hidden");
   yesScreen.classList.remove("hidden");
+  burstConfetti();
+});
+
+// --- Letzte Botschaft + Halskette ---
+document.getElementById("finalBtn").addEventListener("click", () => {
+  yesScreen.classList.add("hidden");
+  finalScreen.classList.remove("hidden");
   burstConfetti();
 });
 
