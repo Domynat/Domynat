@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Für Sedef 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- schwebende Herzen im Hintergrund -->
+  <div class="hearts-bg" id="heartsBg" aria-hidden="true"></div>
+
+  <main class="card" id="card">
+    <!-- Startansicht -->
+    <section class="screen screen--intro" id="introScreen">
+      <div class="emoji-big">💌</div>
+      <h1>Hey Sedef…</h1>
+      <p class="subtitle">Ich hab dir etwas Wichtiges zu sagen.</p>
+      <button class="btn btn--primary" id="startBtn">Lies weiter 💕</button>
+    </section>
+
+    <!-- Frage-Ansicht -->
+    <section class="screen screen--question hidden" id="questionScreen">
+      <div class="emoji-big">🌹</div>
+      <h1>Willst du meine Freundin sein?</h1>
+      <p class="subtitle">Seit unserer Kennenlernphase bringst du mein Herz zum Lächeln.</p>
+      <div class="buttons">
+        <button class="btn btn--yes" id="yesBtn">Ja 🥰</button>
+        <button class="btn btn--no" id="noBtn">Nein 🙈</button>
+      </div>
+    </section>
+
+    <!-- Ja-Ansicht -->
+    <section class="screen screen--yes hidden" id="yesScreen">
+      <div class="emoji-big">🥳</div>
+      <h1>Ich freu mich so sehr!</h1>
+      <p class="subtitle">Du machst mich zum glücklichsten Menschen. ❤️ Sedef &amp; ich.</p>
+      <div class="emoji-big">💑</div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
