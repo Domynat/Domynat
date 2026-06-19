@@ -19,34 +19,34 @@ const profiles = {
 
   wim: {
     emoji: "🏀",
-    title: "Yo Wim!",
-    text: "Mein bester Freund. Auf dem Basketballplatz unschlagbar – zumindest fast. 😏 Nächstes 1-gegen-1 gewinn ich!",
+    title: "WIM",
+    text: "Legende auf dem Court, Bruder fürs Leben. 🏀 Im 1-gegen-1 gegen mich reden wir lieber nicht über die Statistik. 😏 Revanche steht.",
   },
 
   maik: {
     emoji: "🎧",
-    title: "Was geht, Maik!",
-    text: "Der Mann mit den besten Playlists weit und breit. Schick mal wieder was Neues für die Ohren!",
+    title: "MAIK",
+    text: "DJ des Vertrauens. 🎧 Wenn Playlists ein Studienfach wären, hättest du längst den Doktor. Dreh auf.",
   },
 
   marcel: {
     emoji: "🧥",
-    title: "Hey Marcel!",
-    text: "Style-Ikone. Egal wann, egal wo – dein Outfit sitzt immer. Wie machst du das nur?",
+    title: "MARCEL",
+    text: "Wandelnde Vogue-Ausgabe. 🧥 Wir tragen 'Klamotten', du trägst 'Fits'. Wie immer: ganz oben.",
   },
 
   // ---- Ihre Freundinnen ----
 
   yomna: {
     emoji: "⚡",
-    title: "Hiii Yomna!",
-    text: "Pure Energie auf zwei Beinen! Mit dir wird's nie langweilig. 🌟",
+    title: "YOMNA",
+    text: "Wer hat dich an die Steckdose angeschlossen? ⚡ 100.000 Volt pure Energie – bleib genau so laut.",
   },
 
   clara: {
     emoji: "🎮",
-    title: "Hey Clara!",
-    text: "Gamerin und ein bisschen verrückt – aber genau das ist dein Charme. Zumindest würde Wim das so sagen. 👀💘",
+    title: "CLARA",
+    text: "Final-Boss-Energie. 🎮 Auf die beste Art ein bisschen drüber – und Wim findet's heimlich mega. 👀 (du hast nichts gesehen)",
   },
 
   // ---- NICHT ändern: Das ist Sedefs großer Moment ----

@@ -15,19 +15,23 @@
 
   <!-- Such-Bildschirm: Name eintippen -->
   <section class="search-screen" id="searchScreen">
-    <div class="search-logo">✨</div>
-    <p class="search-hint">Schreib deinen Namen…</p>
+    <div class="search-logo">🔎</div>
+    <p class="search-hint">Wer bist du? Tipp deinen Namen ein.</p>
     <form class="search-box" id="searchForm" autocomplete="off">
-      <span class="search-icon">🔍</span>
+      <button type="submit" class="search-icon" aria-label="Suchen">🔍</button>
       <input
         type="text"
         id="nameInput"
         class="search-input"
-        placeholder="Hier tippen"
+        placeholder="Name eingeben"
         aria-label="Dein Name"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="none"
+        spellcheck="false"
       />
     </form>
-    <p class="search-error hidden" id="searchError">Hmm, dich kenn ich noch nicht 🤔 – versuch's nochmal.</p>
+    <p class="search-error hidden" id="searchError">Den Namen kenn ich nicht. 🤔 Versuch's nochmal.</p>
   </section>
 
   <!-- Generische Karte für Freunde -->

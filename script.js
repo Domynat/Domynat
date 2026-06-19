@@ -33,9 +33,10 @@
   }
 })();
 
-// --- Schwebende Herzen im Hintergrund ---
+// --- Schwebende Herzen im Hintergrund (erst im romantischen Modus) ---
 const heartsBg = document.getElementById("heartsBg");
 const heartEmojis = ["💖", "💕", "💗", "❤️", "🌸", "💞", "✨"];
+let heartsTimer = null;
 
 function spawnHeart() {
   const heart = document.createElement("span");
@@ -48,7 +49,12 @@ function spawnHeart() {
   heartsBg.appendChild(heart);
   setTimeout(() => heart.remove(), duration * 1000);
 }
-setInterval(spawnHeart, 500);
+
+// Romantischen Modus einschalten: rosa Theme + Herzen
+function activateRomanticMode() {
+  document.body.classList.add("romantic");
+  if (!heartsTimer) heartsTimer = setInterval(spawnHeart, 500);
+}
 
 // --- Elemente ---
 const searchScreen = document.getElementById("searchScreen");
@@ -79,7 +85,8 @@ searchForm.addEventListener("submit", (e) => {
   searchScreen.classList.add("hidden");
 
   if (profile.special) {
-    // Sedefs Antrag
+    // Sedefs Antrag – jetzt wird's romantisch
+    activateRomanticMode();
     card.classList.remove("hidden");
   } else {
     // Freundes-Karte füllen und zeigen
