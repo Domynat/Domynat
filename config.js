@@ -26,6 +26,6 @@
 // =======================================================================
 
 const mailboxConfig = {
-  binId: "",   // hier deine Bin-ID einsetzen, z. B. "65a1b2c3d4e5f6a7b8c9d0e1"
-  apiKey: "",  // hier deinen JSONBin Master Key einsetzen
+  binId: "6a3562e2f5f4af5e290fddc6",   // hier deine Bin-ID einsetzen, z. B. "65a1b2c3d4e5f6a7b8c9d0e1"
+  apiKey: "$2a$10$W8wPqK/H1W438lDeprQmw.CcoIEcc4a36yBh.Gr59AxqIiEqdjEDC",  // hier deinen JSONBin Master Key einsetzen
 };
