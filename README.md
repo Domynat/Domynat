@@ -13,6 +13,13 @@ Anführungszeichen ändern. Wichtig: Namen immer klein schreiben, jede Zeile
 endet mit einem Komma. Den `sedef`-Eintrag so lassen – der ist der Antrag.
 
 Geheime Codewörter stehen in derselben Datei unter `secrets`.
+Die "Gründe, warum ich dich mag"-Karten stehen unter `reasons`,
+und die versteckten Easter Eggs (Wörter für die Suchleiste) unter
+`easterEggs`.
+
+Eure Spotify-Songs trägst du in der Datei **`songs.js`** ein
+(Anleitung steht oben in der Datei). Der erste Song erscheint, wenn
+Sedef "Ja" sagt; alle Songs gibt es im Bereich "🎵 Unsere Songs".
 
 ---
 

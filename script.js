@@ -77,6 +77,15 @@ searchForm.addEventListener("submit", (e) => {
   const profile = profiles[value];
 
   if (!profile) {
+    // Easter Egg? Dann Emoji-Regen statt Fehlermeldung.
+    if (typeof easterEggs !== "undefined" && easterEggs[value]) {
+      const egg = easterEggs[value];
+      emojiRain(egg.emoji);
+      showToast(egg.message);
+      searchError.classList.add("hidden");
+      nameInput.value = "";
+      return;
+    }
     searchError.classList.remove("hidden");
     return;
   }
@@ -175,6 +184,41 @@ document.getElementById("finalBtn").addEventListener("click", () => {
 });
 
 // =====================================================================
+//  Easter-Egg-Helfer: Emoji-Regen + kurze Einblendung
+// =====================================================================
+function emojiRain(emoji) {
+  for (let i = 0; i < 40; i++) {
+    const drop = document.createElement("span");
+    drop.textContent = emoji;
+    drop.style.position = "fixed";
+    drop.style.left = Math.random() * 100 + "vw";
+    drop.style.top = "-40px";
+    drop.style.fontSize = 20 + Math.random() * 28 + "px";
+    drop.style.zIndex = 50;
+    drop.style.pointerEvents = "none";
+    drop.style.transition = "transform 2.6s ease-in, opacity 2.6s ease-in";
+    document.body.appendChild(drop);
+    requestAnimationFrame(() => {
+      drop.style.transform = `translateY(110vh) rotate(${Math.random() * 720}deg)`;
+      drop.style.opacity = "0";
+    });
+    setTimeout(() => drop.remove(), 2800);
+  }
+}
+
+function showToast(message) {
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  requestAnimationFrame(() => toast.classList.add("toast--show"));
+  setTimeout(() => {
+    toast.classList.remove("toast--show");
+    setTimeout(() => toast.remove(), 400);
+  }, 2200);
+}
+
+// =====================================================================
 //  Navigation zwischen den Bildschirmen nach dem Ja
 // =====================================================================
 const cardScreens = Array.from(card.querySelectorAll(".screen"));
@@ -189,6 +233,7 @@ document.querySelectorAll("[data-goto]").forEach((btn) => {
   btn.addEventListener("click", () => {
     showCardScreen(btn.dataset.goto);
     if (btn.dataset.goto === "mailboxScreen") openMailbox();
+    if (btn.dataset.goto === "reasonsScreen") showReason();
   });
 });
 
@@ -388,6 +433,95 @@ function openMailbox() {
 }
 
 renderMailbox();
+
+// =====================================================================
+//  Unsere Songs (Spotify)
+// =====================================================================
+function spotifyEmbedSrc(url) {
+  const m = String(url).match(/track\/([A-Za-z0-9]+)/);
+  const id = m ? m[1] : String(url).trim();
+  if (!id || /HIER_DEINEN|^$/i.test(id)) return null;
+  return `https://open.spotify.com/embed/track/${id}`;
+}
+
+function makeSpotifyIframe(src) {
+  const frame = document.createElement("iframe");
+  frame.src = src;
+  frame.width = "100%";
+  frame.height = "152";
+  frame.style.borderRadius = "12px";
+  frame.style.border = "0";
+  frame.loading = "lazy";
+  frame.allow =
+    "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+  return frame;
+}
+
+function renderSongs() {
+  const list = document.getElementById("songsList");
+  const yesSong = document.getElementById("yesSong");
+  const valid =
+    typeof songs !== "undefined"
+      ? songs.filter((s) => spotifyEmbedSrc(s.url))
+      : [];
+
+  // Song beim "Ja" (der erste in der Liste)
+  if (yesSong && valid[0]) {
+    yesSong.appendChild(makeSpotifyIframe(spotifyEmbedSrc(valid[0].url)));
+  }
+
+  // Alle Songs im Songs-Bereich
+  if (!list) return;
+  list.innerHTML = "";
+  if (valid.length === 0) {
+    const hint = document.createElement("p");
+    hint.className = "mailbox-empty";
+    hint.textContent = "Trag eure Songs in der Datei songs.js ein. 🎵";
+    list.appendChild(hint);
+    return;
+  }
+  valid.forEach((s) => {
+    if (s.note) {
+      const note = document.createElement("p");
+      note.className = "song-note";
+      note.textContent = s.note;
+      list.appendChild(note);
+    }
+    list.appendChild(makeSpotifyIframe(spotifyEmbedSrc(s.url)));
+  });
+}
+renderSongs();
+
+// =====================================================================
+//  Gründe-Karten
+// =====================================================================
+const reasonText = document.getElementById("reasonText");
+const reasonCounter = document.getElementById("reasonCounter");
+const reasonCard = document.getElementById("reasonCard");
+const reasonNext = document.getElementById("reasonNext");
+let reasonIndex = 0;
+
+function showReason() {
+  if (typeof reasons === "undefined" || reasons.length === 0) {
+    reasonText.textContent = "Trag eure Gründe in der Datei profiles.js ein. 💖";
+    reasonCounter.textContent = "";
+    return;
+  }
+  reasonText.textContent = reasons[reasonIndex];
+  reasonCounter.textContent = `${reasonIndex + 1} / ${reasons.length}`;
+  reasonCard.classList.remove("flip");
+  void reasonCard.offsetWidth; // Animation neu auslösen
+  reasonCard.classList.add("flip");
+}
+
+if (reasonNext) {
+  reasonNext.addEventListener("click", () => {
+    if (typeof reasons === "undefined" || reasons.length === 0) return;
+    reasonIndex = (reasonIndex + 1) % reasons.length;
+    showReason();
+  });
+}
+showReason();
 
 function burstConfetti() {
   const emojis = ["💖", "🎉", "💕", "🌹", "✨", "❤️", "🥰", "💞"];

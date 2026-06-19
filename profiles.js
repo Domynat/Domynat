@@ -371,3 +371,43 @@ const secrets = {
   // Tipp: gib Sedef die Codewörter nach und nach persönlich,
   // dann ist jede Nachricht eine kleine Überraschung.
 };
+
+// =======================================================================
+//  GRÜNDE-KARTEN
+//  Erscheinen, wenn Sedef "Ja" sagt, und sind danach jederzeit unter
+//  "💖 Gründe für dich" abrufbar. Schreib so viele, wie du willst –
+//  einfach jede Zeile in Anführungszeichen, getrennt mit Komma.
+// =======================================================================
+
+const reasons = [
+  "Weil dein Lächeln meinen ganzen Tag rettet.",
+  "Weil du meine Sonne bist – an jedem grauen Tag. ☀️",
+  "Weil getrocknete Mango mit dir tausendmal besser schmeckt. 🥭",
+  "Weil du echte Prinzessinnen-Energie hast. 👑",
+  "Weil ich mit dir reich bin – ganz ohne Ananas. 🍍",
+  "Weil du Katzen liebst und selbst so kuschelig bist. 🐱",
+  "Weil ich bei dir einfach ich sein kann.",
+  "Weil du mich zum Lachen bringst, auch wenn mir nicht danach ist.",
+  "Weil Lernen mit dir nie langweilig wird.",
+  "Weil du an mich glaubst, wenn ich es selbst nicht tue.",
+  "Weil jede Minute mit dir viel zu schnell vergeht.",
+  "Weil du genau so bist, wie du bist – perfekt für mich.",
+];
+
+// =======================================================================
+//  EASTER EGGS (Hauptsuche)
+//  Tippt man eines dieser Wörter in die SUCHLEISTE (nicht im Geheim-
+//  Bereich), gibt's einen kleinen versteckten Spaß: ein Emoji-Regen
+//  und eine Mini-Nachricht. Wort klein schreiben.
+// =======================================================================
+
+const easterEggs = {
+  ananas:  { emoji: "🍍", message: "Reich-Sein-Modus aktiviert! 🍍💰" },
+  mango:   { emoji: "🥭", message: "Mango-Regen! Lern-Snack incoming. 🥭" },
+  katze:   { emoji: "🐱", message: "Miau! 🐱" },
+  katzen:  { emoji: "🐱", message: "Eine ganze Katzen-Parade! 🐱🐈" },
+  sonne:   { emoji: "☀️", message: "Sonnenschein für dich! ☀️" },
+  herz:    { emoji: "❤️", message: "Ganz viel Liebe! ❤️" },
+  pizza:   { emoji: "🍕", message: "Pizza-Zeit! 🍕" },
+  basketball: { emoji: "🏀", message: "Buzzer Beater! 🏀" },
+};
