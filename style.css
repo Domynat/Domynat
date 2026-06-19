@@ -227,6 +227,12 @@ h1 {
   border: 2px solid var(--pink);
 }
 
+.back-btn {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  padding: 12px 26px;
+}
+
 /* Wenn der Nein-Button "wegläuft" */
 .btn--no.runaway {
   position: fixed;

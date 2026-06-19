@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sedef</title>
+  <title>Wer bist du?</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -13,9 +13,9 @@
   <!-- schwebende Herzen im Hintergrund -->
   <div class="hearts-bg" id="heartsBg" aria-hidden="true"></div>
 
-  <!-- Such-Bildschirm: sie tippt ihren Namen ein -->
+  <!-- Such-Bildschirm: Name eintippen -->
   <section class="search-screen" id="searchScreen">
-    <div class="search-logo">💖</div>
+    <div class="search-logo">✨</div>
     <p class="search-hint">Schreib deinen Namen…</p>
     <form class="search-box" id="searchForm" autocomplete="off">
       <span class="search-icon">🔍</span>
@@ -27,9 +27,20 @@
         aria-label="Dein Name"
       />
     </form>
-    <p class="search-error hidden" id="searchError">Tipp einfach deinen Namen 😉</p>
+    <p class="search-error hidden" id="searchError">Hmm, dich kenn ich noch nicht 🤔 – versuch's nochmal.</p>
   </section>
 
+  <!-- Generische Karte für Freunde -->
+  <main class="card hidden" id="profileCard">
+    <section class="screen">
+      <div class="emoji-big" id="profileEmoji">🙂</div>
+      <h1 id="profileTitle">Hallo!</h1>
+      <p class="subtitle" id="profileText">Schön, dass du da bist.</p>
+      <button class="btn btn--primary back-btn" data-back>Zurück 🔙</button>
+    </section>
+  </main>
+
+  <!-- Sedefs großer Antrag -->
   <main class="card hidden" id="card">
     <!-- Begrüßung -->
     <section class="screen screen--intro" id="introScreen">
@@ -71,6 +82,7 @@
     </section>
   </main>
 
+  <script src="profiles.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

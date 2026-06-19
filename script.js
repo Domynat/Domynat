@@ -1,6 +1,6 @@
 // --- Schwebende Herzen im Hintergrund ---
 const heartsBg = document.getElementById("heartsBg");
-const heartEmojis = ["💖", "💕", "💗", "❤️", "🌸", "💞"];
+const heartEmojis = ["💖", "💕", "💗", "❤️", "🌸", "💞", "✨"];
 
 function spawnHeart() {
   const heart = document.createElement("span");
@@ -15,30 +15,57 @@ function spawnHeart() {
 }
 setInterval(spawnHeart, 500);
 
-// --- Such-Bildschirm: sie tippt ihren Namen ein ---
+// --- Elemente ---
 const searchScreen = document.getElementById("searchScreen");
 const searchForm = document.getElementById("searchForm");
 const nameInput = document.getElementById("nameInput");
 const searchError = document.getElementById("searchError");
-const card = document.getElementById("card");
 
-// akzeptiert "sedef" (egal ob groß/klein geschrieben)
-const ACCEPTED_NAME = "sedef";
+const card = document.getElementById("card");
+const profileCard = document.getElementById("profileCard");
+const profileEmoji = document.getElementById("profileEmoji");
+const profileTitle = document.getElementById("profileTitle");
+const profileText = document.getElementById("profileText");
 
 nameInput.focus();
 
+// --- Name eingeben ---
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const value = nameInput.value.trim().toLowerCase();
-  if (value === ACCEPTED_NAME) {
-    searchScreen.classList.add("hidden");
+  const profile = profiles[value];
+
+  if (!profile) {
+    searchError.classList.remove("hidden");
+    return;
+  }
+
+  searchError.classList.add("hidden");
+  searchScreen.classList.add("hidden");
+
+  if (profile.special) {
+    // Sedefs Antrag
     card.classList.remove("hidden");
   } else {
-    searchError.classList.remove("hidden");
+    // Freundes-Karte füllen und zeigen
+    profileEmoji.textContent = profile.emoji || "🙂";
+    profileTitle.textContent = profile.title || "Hallo!";
+    profileText.textContent = profile.text || "";
+    profileCard.classList.remove("hidden");
   }
 });
 
-// --- Bildschirme wechseln ---
+// --- Zurück-Knopf (führt wieder zur Suche) ---
+document.querySelectorAll("[data-back]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    profileCard.classList.add("hidden");
+    searchScreen.classList.remove("hidden");
+    nameInput.value = "";
+    nameInput.focus();
+  });
+});
+
+// --- Bildschirme im Antrag wechseln ---
 const introScreen = document.getElementById("introScreen");
 const questionScreen = document.getElementById("questionScreen");
 const yesScreen = document.getElementById("yesScreen");
