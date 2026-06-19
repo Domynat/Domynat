@@ -16,6 +16,16 @@ Geheime Codewörter stehen in derselben Datei unter `secrets`.
 
 ---
 
+## Briefkasten über zwei Geräte teilen (optional, kostenlos)
+
+Standardmäßig speichert der Briefkasten nur auf dem jeweiligen Gerät.
+Wenn ihr euch über **zwei** Geräte schreiben wollt, trag in der Datei
+**`config.js`** einen kostenlosen Online-Speicher ein. Die genaue
+Schritt-für-Schritt-Anleitung steht oben in `config.js` selbst.
+Eine eigene Domain ist dafür **nicht** nötig.
+
+---
+
 ## 2. Webseite kostenlos online stellen (Weg B)
 
 Damit man die Seite mit einem Link öffnen kann, schaltest du **GitHub Pages**

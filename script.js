@@ -144,7 +144,10 @@ function showCardScreen(id) {
 }
 
 document.querySelectorAll("[data-goto]").forEach((btn) => {
-  btn.addEventListener("click", () => showCardScreen(btn.dataset.goto));
+  btn.addEventListener("click", () => {
+    showCardScreen(btn.dataset.goto);
+    if (btn.dataset.goto === "mailboxScreen") openMailbox();
+  });
 });
 
 // =====================================================================
@@ -213,25 +216,68 @@ secretForm.addEventListener("submit", (e) => {
 });
 
 // =====================================================================
-//  Feature 4: Briefkasten (wird auf diesem Gerät gespeichert)
+//  Feature 4: Briefkasten
+//  Wenn in config.js ein Online-Speicher eingetragen ist, teilen sich
+//  beide Geräte denselben Briefkasten. Sonst: lokal pro Gerät.
 // =====================================================================
 const mailboxForm = document.getElementById("mailboxForm");
 const mailboxInput = document.getElementById("mailboxInput");
 const mailboxList = document.getElementById("mailboxList");
 
-function loadMailbox() {
+function mailboxOnline() {
+  return (
+    typeof mailboxConfig !== "undefined" &&
+    mailboxConfig.binId &&
+    mailboxConfig.apiKey
+  );
+}
+
+// --- lokaler Speicher (Rückfall) ---
+function loadLocal() {
   try {
     return JSON.parse(localStorage.getItem("mailbox") || "[]");
   } catch {
     return [];
   }
 }
+function saveLocal(messages) {
+  localStorage.setItem("mailbox", JSON.stringify(messages));
+}
 
-function renderMailbox() {
-  const messages = loadMailbox();
+// --- Online-Speicher (JSONBin) ---
+async function fetchMessages() {
+  if (!mailboxOnline()) return loadLocal();
+  try {
+    const res = await fetch(
+      `https://api.jsonbin.io/v3/b/${mailboxConfig.binId}/latest`,
+      { headers: { "X-Master-Key": mailboxConfig.apiKey } }
+    );
+    const data = await res.json();
+    return (data.record && data.record.messages) || [];
+  } catch {
+    return loadLocal(); // bei Internet-Problemen wenigstens lokal zeigen
+  }
+}
+
+async function saveMessages(messages) {
+  if (!mailboxOnline()) {
+    saveLocal(messages);
+    return;
+  }
+  await fetch(`https://api.jsonbin.io/v3/b/${mailboxConfig.binId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Master-Key": mailboxConfig.apiKey,
+    },
+    body: JSON.stringify({ messages }),
+  });
+}
+
+function renderList(messages) {
   mailboxList.innerHTML = "";
 
-  if (messages.length === 0) {
+  if (!messages || messages.length === 0) {
     const empty = document.createElement("p");
     empty.className = "mailbox-empty";
     empty.textContent = "Noch keine Nachrichten – schreib die erste! 💌";
@@ -264,17 +310,40 @@ function renderMailbox() {
     });
 }
 
-mailboxForm.addEventListener("submit", (e) => {
+async function renderMailbox() {
+  const messages = await fetchMessages();
+  renderList(messages);
+}
+
+mailboxForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const text = mailboxInput.value.trim();
   if (!text) return;
 
-  const messages = loadMailbox();
-  messages.push({ text, date: Date.now() });
-  localStorage.setItem("mailbox", JSON.stringify(messages));
   mailboxInput.value = "";
-  renderMailbox();
+  const messages = await fetchMessages(); // neueste Liste holen
+  messages.push({ text, date: Date.now() });
+  await saveMessages(messages);
+  renderList(messages);
 });
+
+// Beim Öffnen des Briefkastens neu laden + alle 5 Sek. auffrischen
+let mailboxPoll = null;
+function openMailbox() {
+  renderMailbox();
+  if (mailboxPoll) clearInterval(mailboxPoll);
+  mailboxPoll = setInterval(() => {
+    const visible = !document
+      .getElementById("mailboxScreen")
+      .classList.contains("hidden");
+    if (visible && mailboxOnline()) {
+      renderMailbox();
+    } else if (!visible) {
+      clearInterval(mailboxPoll);
+      mailboxPoll = null;
+    }
+  }, 5000);
+}
 
 renderMailbox();
 
