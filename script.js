@@ -1,11 +1,37 @@
-// --- Test-Reset: Seite mit ?reset am Ende der Adresse öffnen,
-//     um Test-Daten (Zähler-Startdatum + lokalen Briefkasten) zu löschen.
-if (location.search.toLowerCase().includes("reset")) {
+// --- Test-Reset ---
+//   ?reset     löscht Test-Daten lokal (Zähler-Startdatum + lokaler Briefkasten)
+//   ?resetall  löscht zusätzlich den ONLINE-Briefkasten (alle Nachrichten!)
+(function handleReset() {
+  const q = location.search.toLowerCase();
+  if (!q.includes("reset")) return;
+
   localStorage.removeItem("togetherSince");
   localStorage.removeItem("mailbox");
-  alert("Test-Daten gelöscht! Der Zähler startet beim nächsten 'Ja' neu. 💕");
-  location.replace(location.pathname);
-}
+
+  const wipeOnline =
+    q.includes("resetall") &&
+    typeof mailboxConfig !== "undefined" &&
+    mailboxConfig.binId &&
+    mailboxConfig.apiKey;
+
+  const finish = () => {
+    alert("Test-Daten gelöscht! Der Zähler startet beim nächsten 'Ja' neu. 💕");
+    location.replace(location.pathname);
+  };
+
+  if (wipeOnline) {
+    fetch(`https://api.jsonbin.io/v3/b/${mailboxConfig.binId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Master-Key": mailboxConfig.apiKey,
+      },
+      body: JSON.stringify({ messages: [] }),
+    }).finally(finish);
+  } else {
+    finish();
+  }
+})();
 
 // --- Schwebende Herzen im Hintergrund ---
 const heartsBg = document.getElementById("heartsBg");

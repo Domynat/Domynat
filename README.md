@@ -25,8 +25,11 @@ Zwei einfache Wege:
   bleiben keine Spuren.
 - **Reset-Link:** Öffne die Seite mit `?reset` am Ende der Adresse, z. B.
   `…/index.html?reset` (oder `https://…github.io/Domynat/?reset`).
-  Damit werden das Zähler-Startdatum und der lokale Briefkasten gelöscht
-  und es startet alles wie neu.
+  Damit werden das Zähler-Startdatum und der lokale Briefkasten gelöscht.
+- **Online-Briefkasten leeren:** Hast du den geteilten Briefkasten
+  eingerichtet, landen Test-Nachrichten online. Mit `?resetall` (statt
+  `?reset`) werden auch diese Online-Nachrichten gelöscht. Achtung: damit
+  sind ALLE Nachrichten im Briefkasten weg – also nur zum Testen nutzen.
 
 Der "Zusammen seit"-Zähler startet übrigens erst, wenn man im Antrag bis
 zur Liebesbotschaft klickt – nur die Seite anschauen löst ihn nicht aus.
