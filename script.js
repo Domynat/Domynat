@@ -125,8 +125,158 @@ yesBtn.addEventListener("click", () => {
 document.getElementById("finalBtn").addEventListener("click", () => {
   yesScreen.classList.add("hidden");
   finalScreen.classList.remove("hidden");
+  // Startzeitpunkt eurer Beziehung merken (nur beim ersten Mal)
+  if (!localStorage.getItem("togetherSince")) {
+    localStorage.setItem("togetherSince", Date.now().toString());
+  }
   burstConfetti();
 });
+
+// =====================================================================
+//  Navigation zwischen den Bildschirmen nach dem Ja
+// =====================================================================
+const cardScreens = Array.from(card.querySelectorAll(".screen"));
+
+function showCardScreen(id) {
+  cardScreens.forEach((s) => s.classList.add("hidden"));
+  const target = document.getElementById(id);
+  if (target) target.classList.remove("hidden");
+}
+
+document.querySelectorAll("[data-goto]").forEach((btn) => {
+  btn.addEventListener("click", () => showCardScreen(btn.dataset.goto));
+});
+
+// =====================================================================
+//  Feature 1: Zusammen-seit-Zähler
+// =====================================================================
+const sinceDate = document.getElementById("sinceDate");
+const cDays = document.getElementById("cDays");
+const cHours = document.getElementById("cHours");
+const cMin = document.getElementById("cMin");
+const cSec = document.getElementById("cSec");
+
+function updateCounter() {
+  const start = parseInt(localStorage.getItem("togetherSince"), 10);
+  if (!start) return;
+
+  const startDate = new Date(start);
+  sinceDate.textContent =
+    "seit dem " +
+    startDate.toLocaleDateString("de-DE", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    });
+
+  let diff = Math.floor((Date.now() - start) / 1000);
+  const days = Math.floor(diff / 86400); diff -= days * 86400;
+  const hours = Math.floor(diff / 3600); diff -= hours * 3600;
+  const mins = Math.floor(diff / 60); diff -= mins * 60;
+  const secs = diff;
+
+  cDays.textContent = days;
+  cHours.textContent = hours;
+  cMin.textContent = mins;
+  cSec.textContent = secs;
+}
+setInterval(updateCounter, 1000);
+updateCounter();
+
+// =====================================================================
+//  Feature 3: Geheime Nachrichten (Codewort)
+// =====================================================================
+const secretForm = document.getElementById("secretForm");
+const secretInput = document.getElementById("secretInput");
+const secretError = document.getElementById("secretError");
+const secretResult = document.getElementById("secretResult");
+const secretEmoji = document.getElementById("secretEmoji");
+const secretTitle = document.getElementById("secretTitle");
+const secretText = document.getElementById("secretText");
+
+secretForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const code = secretInput.value.trim().toLowerCase();
+  const found = secrets[code];
+
+  if (found) {
+    secretEmoji.textContent = found.emoji || "💖";
+    secretTitle.textContent = found.title || "";
+    secretText.textContent = found.text || "";
+    secretResult.classList.remove("hidden");
+    secretError.classList.add("hidden");
+    burstConfetti();
+  } else {
+    secretResult.classList.add("hidden");
+    secretError.classList.remove("hidden");
+  }
+});
+
+// =====================================================================
+//  Feature 4: Briefkasten (wird auf diesem Gerät gespeichert)
+// =====================================================================
+const mailboxForm = document.getElementById("mailboxForm");
+const mailboxInput = document.getElementById("mailboxInput");
+const mailboxList = document.getElementById("mailboxList");
+
+function loadMailbox() {
+  try {
+    return JSON.parse(localStorage.getItem("mailbox") || "[]");
+  } catch {
+    return [];
+  }
+}
+
+function renderMailbox() {
+  const messages = loadMailbox();
+  mailboxList.innerHTML = "";
+
+  if (messages.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "mailbox-empty";
+    empty.textContent = "Noch keine Nachrichten – schreib die erste! 💌";
+    mailboxList.appendChild(empty);
+    return;
+  }
+
+  messages
+    .slice()
+    .reverse()
+    .forEach((m) => {
+      const item = document.createElement("div");
+      item.className = "mailbox-item";
+
+      const p = document.createElement("p");
+      p.textContent = m.text;
+
+      const time = document.createElement("time");
+      time.textContent = new Date(m.date).toLocaleString("de-DE", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+
+      item.appendChild(p);
+      item.appendChild(time);
+      mailboxList.appendChild(item);
+    });
+}
+
+mailboxForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const text = mailboxInput.value.trim();
+  if (!text) return;
+
+  const messages = loadMailbox();
+  messages.push({ text, date: Date.now() });
+  localStorage.setItem("mailbox", JSON.stringify(messages));
+  mailboxInput.value = "";
+  renderMailbox();
+});
+
+renderMailbox();
 
 function burstConfetti() {
   const emojis = ["💖", "🎉", "💕", "🌹", "✨", "❤️", "🥰", "💞"];

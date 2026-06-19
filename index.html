@@ -79,6 +79,65 @@
         Und ich hab dir noch etwas zu geben…
       </p>
       <p class="look-up" id="lookUp">Jetzt schau mich an. 🥹💍</p>
+      <button class="btn btn--primary" data-goto="hubScreen">Weiter zu uns 💕</button>
+    </section>
+
+    <!-- Hub: Menü nach dem Ja -->
+    <section class="screen hidden" id="hubScreen">
+      <div class="emoji-big">💑</div>
+      <h1>Unser Plätzchen</h1>
+      <p class="subtitle">Nur für uns zwei.</p>
+      <div class="hub-buttons">
+        <button class="btn btn--primary" data-goto="counterScreen">⏱️ Zusammen seit</button>
+        <button class="btn btn--primary" data-goto="secretScreen">🔒 Geheime Nachrichten</button>
+        <button class="btn btn--primary" data-goto="mailboxScreen">💌 Briefkasten</button>
+      </div>
+    </section>
+
+    <!-- Feature 1: Zusammen-seit-Zähler -->
+    <section class="screen hidden" id="counterScreen">
+      <div class="emoji-big">⏱️</div>
+      <h1>Zusammen seit…</h1>
+      <p class="subtitle" id="sinceDate"></p>
+      <div class="counter" id="counter">
+        <div class="counter-box"><span id="cDays">0</span><small>Tage</small></div>
+        <div class="counter-box"><span id="cHours">0</span><small>Std</small></div>
+        <div class="counter-box"><span id="cMin">0</span><small>Min</small></div>
+        <div class="counter-box"><span id="cSec">0</span><small>Sek</small></div>
+      </div>
+      <p class="love-text">…und es werden immer mehr. ❤️</p>
+      <button class="btn btn--no" data-goto="hubScreen">Zurück 🔙</button>
+    </section>
+
+    <!-- Feature 3: Geheime Nachrichten -->
+    <section class="screen hidden" id="secretScreen">
+      <div class="emoji-big">🔒</div>
+      <h1>Geheime Nachricht</h1>
+      <p class="subtitle">Kennst du das Codewort?</p>
+      <form class="secret-form" id="secretForm" autocomplete="off">
+        <input type="text" id="secretInput" class="search-input secret-input" placeholder="Codewort…" aria-label="Codewort" />
+        <button class="btn btn--yes" type="submit">Öffnen 🔓</button>
+      </form>
+      <div class="secret-result hidden" id="secretResult">
+        <div class="emoji-big" id="secretEmoji">💖</div>
+        <h1 id="secretTitle"></h1>
+        <p class="love-text" id="secretText"></p>
+      </div>
+      <p class="search-error hidden" id="secretError">Hmm, das Codewort stimmt nicht. 🤔</p>
+      <button class="btn btn--no" data-goto="hubScreen">Zurück 🔙</button>
+    </section>
+
+    <!-- Feature 4: Briefkasten -->
+    <section class="screen hidden" id="mailboxScreen">
+      <div class="emoji-big">💌</div>
+      <h1>Unser Briefkasten</h1>
+      <p class="subtitle">Hinterlasst euch süße Nachrichten.</p>
+      <form class="mailbox-form" id="mailboxForm" autocomplete="off">
+        <textarea id="mailboxInput" class="mailbox-input" rows="3" placeholder="Schreib etwas Liebes…" aria-label="Nachricht"></textarea>
+        <button class="btn btn--yes" type="submit">Abschicken 💗</button>
+      </form>
+      <div class="mailbox-list" id="mailboxList"></div>
+      <button class="btn btn--no" data-goto="hubScreen">Zurück 🔙</button>
     </section>
   </main>
 
