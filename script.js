@@ -1,3 +1,12 @@
+// --- Test-Reset: Seite mit ?reset am Ende der Adresse öffnen,
+//     um Test-Daten (Zähler-Startdatum + lokalen Briefkasten) zu löschen.
+if (location.search.toLowerCase().includes("reset")) {
+  localStorage.removeItem("togetherSince");
+  localStorage.removeItem("mailbox");
+  alert("Test-Daten gelöscht! Der Zähler startet beim nächsten 'Ja' neu. 💕");
+  location.replace(location.pathname);
+}
+
 // --- Schwebende Herzen im Hintergrund ---
 const heartsBg = document.getElementById("heartsBg");
 const heartEmojis = ["💖", "💕", "💗", "❤️", "🌸", "💞", "✨"];

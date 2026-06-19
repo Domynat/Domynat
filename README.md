@@ -16,6 +16,23 @@ Geheime Codewörter stehen in derselben Datei unter `secrets`.
 
 ---
 
+## Vorher testen (ohne dass der Zähler "echt" startet)
+
+Zwei einfache Wege:
+
+- **Privates Fenster / Inkognito-Fenster** benutzen: Dort wird beim
+  Schließen automatisch alles gelöscht – perfekt zum Ausprobieren, es
+  bleiben keine Spuren.
+- **Reset-Link:** Öffne die Seite mit `?reset` am Ende der Adresse, z. B.
+  `…/index.html?reset` (oder `https://…github.io/Domynat/?reset`).
+  Damit werden das Zähler-Startdatum und der lokale Briefkasten gelöscht
+  und es startet alles wie neu.
+
+Der "Zusammen seit"-Zähler startet übrigens erst, wenn man im Antrag bis
+zur Liebesbotschaft klickt – nur die Seite anschauen löst ihn nicht aus.
+
+---
+
 ## Briefkasten über zwei Geräte teilen (optional, kostenlos)
 
 Standardmäßig speichert der Briefkasten nur auf dem jeweiligen Gerät.
