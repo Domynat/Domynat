@@ -69,157 +69,303 @@ const secrets = {
   morgen: {
     emoji: "🌅",
     title: "Guten Morgen, Schönste",
-    text: "Mein erster Gedanke heute warst du. Hab einen wunderschönen Tag. ☀️",
+    text:
+      "Die Sonne weckt den neuen Tag,\n" +
+      "doch heller strahlt, was ich so mag.\n" +
+      "Guten Morgen, Liebste mein –\n" +
+      "mit dir wird jeder Tag ein Schein.",
   },
 
   nacht: {
     emoji: "🌙",
-    title: "Schlaf schön",
-    text: "Egal wie mein Tag war – an dich zu denken macht ihn besser. Träum süß. 💤❤️",
+    title: "Gute Nacht",
+    text:
+      "Der Mond zieht leis am Himmel auf,\n" +
+      "ich leg mein Herz in deinen Lauf.\n" +
+      "Schlaf gut, mein Schatz, und träum von mir,\n" +
+      "denn jede Nacht gehör ich dir.",
   },
 
   liebe: {
     emoji: "❤️",
     title: "Ich liebe dich",
-    text: "Einfach so, ohne Grund, ohne Anlass. Ich liebe dich – heute, morgen und immer.",
+    text:
+      "Kein Grund, kein Anlass, einfach so:\n" +
+      "Du machst mein ganzes Herz so froh.\n" +
+      "Ich liebe dich, ganz ohne Frist,\n" +
+      "weil du mein liebster Mensch nun bist.",
   },
 
   vermisst: {
     emoji: "🥺",
     title: "Ich vermiss dich",
-    text: "Gerade in diesem Moment wünschte ich, du wärst hier bei mir. 💕",
+    text:
+      "Ein leerer Stuhl, ein stiller Raum,\n" +
+      "ich seh dich noch in jedem Traum.\n" +
+      "Ich vermiss dich, komm bald her,\n" +
+      "denn ohne dich fällt alles schwer.",
   },
 
   jahrestag: {
     emoji: "🥂",
     title: "Alles Gute zum Jahrestag!",
-    text: "Ein Jahr mit dir – und ich würde sofort wieder Ja sagen. 💍",
+    text:
+      "Ein Jahr voll Lachen, Hand in Hand,\n" +
+      "durch jedes Glück, durch jede Wand.\n" +
+      "Ich würd's sofort noch einmal wagen –\n" +
+      "und tausend weitere Jahre tragen.",
   },
 
   geburtstag: {
     emoji: "🎂",
     title: "Alles Liebe zum Geburtstag!",
-    text: "Heute feiern wir den besten Menschen der Welt: dich. 🥳🎈",
+    text:
+      "Heut tanzt die Welt nur so für dich,\n" +
+      "ein Kerzenmeer, ein Strahlen, sich.\n" +
+      "Alles Liebe, Schönste mein –\n" +
+      "heut sollst du ganz Prinzessin sein.",
   },
 
   traurig: {
     emoji: "🫂",
     title: "Kopf hoch, mein Schatz",
-    text: "Schlechte Tage gehen vorbei – ich bleibe. Ich bin für dich da, immer. 🤍",
+    text:
+      "Wenn graue Wolken dich umzieh'n,\n" +
+      "lass mich dein kleiner Schirm dir blüh'n.\n" +
+      "Schlechte Tage zieh'n vorbei –\n" +
+      "ich aber bleib, treu und dabei.",
   },
 
   lachen: {
     emoji: "😊",
     title: "Lächel mal",
-    text: "Dein Lächeln ist mein Lieblingsanblick auf der ganzen Welt. Zeig es mir. 😄",
+    text:
+      "Dein Lachen klingt wie schönste Musik,\n" +
+      "es trifft mein Herz im Augenblick.\n" +
+      "Lächel, Liebste, nur für mich –\n" +
+      "nichts auf der Welt schlägt sicherlich dich.",
   },
 
   kuss: {
     emoji: "😘",
     title: "Ein Kuss für dich",
-    text: "Stell dir vor, ich gebe dir gerade einen ganz sanften Kuss auf die Stirn. 💋",
+    text:
+      "Ein sanfter Kuss, ganz weich und leis,\n" +
+      "auf deine Stirn auf meine Weis'.\n" +
+      "Schließ kurz die Augen, fühl ihn sacht –\n" +
+      "ich hab ihn dir hierher gebracht.",
   },
 
   zukunft: {
     emoji: "🔮",
     title: "Unsere Zukunft",
-    text: "Ich sehe noch so viele Abenteuer, Lacher und Umarmungen mit dir vor uns. 🌷",
+    text:
+      "Ich seh uns zwei in ferner Zeit,\n" +
+      "noch immer Hand in Hand, bereit.\n" +
+      "Voll Abenteuer, Lach und Glück –\n" +
+      "mit dir will ich kein Stück zurück.",
   },
 
   danke: {
     emoji: "🙏",
     title: "Danke, dass es dich gibt",
-    text: "Danke, dass du Ja gesagt hast. Danke, dass du einfach du bist. 💖",
+    text:
+      "Danke, dass du Ja gesagt,\n" +
+      "dass du mein Herz so leicht gemacht.\n" +
+      "Danke einfach, dass du bist –\n" +
+      "das Schönste, was mir je geglückt ist.",
   },
 
   sterne: {
     emoji: "⭐",
     title: "Unter den Sternen",
-    text: "Von allen Sternen am Himmel bist du der hellste in meinem Leben. ✨",
+    text:
+      "Am Nachthimmel, so weit, so klar,\n" +
+      "ist doch kein Stern wie du so wahr.\n" +
+      "Von allen Lichtern, groß und fein,\n" +
+      "wirst du für immer meins allein.",
   },
 
   zuhause: {
     emoji: "🏡",
     title: "Mein Zuhause",
-    text: "Zuhause ist kein Ort für mich – Zuhause bist du. 🤍",
+    text:
+      "Kein Ort aus Stein, kein Haus, kein Raum –\n" +
+      "mein Zuhause bist du, mein Traum.\n" +
+      "Wo du auch bist, da will ich sein,\n" +
+      "in deinen Armen heim und rein.",
   },
 
   tanz: {
     emoji: "💃",
     title: "Tanz mit mir",
-    text: "Egal ob in der Küche oder im Regen – mit dir würde ich überall tanzen. 🕺",
+    text:
+      "Komm, leg die Hand in meine sacht,\n" +
+      "wir tanzen leis durch jede Nacht.\n" +
+      "Ob Küche, Regen, ganz egal –\n" +
+      "mit dir wird jeder Schritt total.",
   },
 
   abenteuer: {
     emoji: "🌍",
     title: "Unser Abenteuer",
-    text: "Mit dir an meiner Seite wird selbst der normalste Tag zum Abenteuer. 🚀",
+    text:
+      "Pack deine Träume, komm mit mir,\n" +
+      "die ganze Welt, sie wartet hier.\n" +
+      "Mit dir wird jeder Weg zur Fahrt,\n" +
+      "ein Abenteuer, wunderbar und zart.",
   },
 
   kaffee: {
     emoji: "☕",
     title: "Kaffee mit dir",
-    text: "Der schönste Morgen ist der mit dir, einem Kaffee und ganz viel Zeit. 🥐",
+    text:
+      "Zwei Tassen dampfen, Morgenlicht,\n" +
+      "dein müdes, schönes Angesicht.\n" +
+      "Kein Ort der Welt ist halb so nett\n" +
+      "wie du und ich, noch warm im Bett.",
   },
 
   regen: {
     emoji: "🌧️",
     title: "Auch im Regen",
-    text: "Mit dir sind sogar Regentage schön. Kuscheln wir uns einfach ein. ☔💞",
+    text:
+      "Es tropft ans Fenster, grau und sacht,\n" +
+      "doch du hast Sonne mitgebracht.\n" +
+      "Komm kuschle dich ganz nah an mich –\n" +
+      "im Regen lieb ich nur noch dich.",
   },
 
   mut: {
     emoji: "🦁",
     title: "Du schaffst das",
-    text: "Du bist stärker, als du denkst. Und ich glaube an dich – immer. 💪",
+    text:
+      "Du bist viel stärker, als du denkst,\n" +
+      "ein Löwenherz, das Mut verschenkt.\n" +
+      "Geh nur voran, ich halte dich –\n" +
+      "du schaffst das alles, sicherlich.",
   },
 
   stolz: {
     emoji: "🌟",
     title: "Ich bin so stolz auf dich",
-    text: "Egal was du tust – ich bin unendlich stolz, dich an meiner Seite zu haben.",
+    text:
+      "Was du auch tust, wohin du strebst,\n" +
+      "ich staune, wie du Großes lebst.\n" +
+      "So stolz bin ich, du glaubst es kaum,\n" +
+      "auf dich, mein Mädchen, meinen Traum.",
   },
 
   immer: {
     emoji: "♾️",
     title: "Für immer",
-    text: "Was auch immer kommt: Ich bleibe an deiner Seite. Versprochen. 🤞❤️",
+    text:
+      "Was auch geschieht, was kommen mag,\n" +
+      "ich bleib bei dir an jedem Tag.\n" +
+      "Kein Ende kennt, was uns vereint –\n" +
+      "für immer, bis kein Stern mehr scheint.",
   },
 
   schatz: {
     emoji: "💎",
     title: "Mein größter Schatz",
-    text: "Kein Gold der Welt ist so wertvoll wie ein einziges Lächeln von dir.",
+    text:
+      "Kein Gold, kein Glanz, kein Edelstein\n" +
+      "kann je so wertvoll für mich sein.\n" +
+      "Mein größter Schatz, das bist nur du –\n" +
+      "ein Lächeln, und mein Herz gibt Ruh.",
   },
 
   umarmung: {
     emoji: "🤗",
     title: "Eine feste Umarmung",
-    text: "Stell dir vor, ich halte dich gerade ganz fest. Lass mich nicht los. 💕",
+    text:
+      "Komm her zu mir, ich halt dich fest,\n" +
+      "mein Arm dein warmes, sich'res Nest.\n" +
+      "Drück dich ganz nah, lass los die Welt –\n" +
+      "nur du und ich, sonst nichts mehr zählt.",
   },
 
   mond: {
     emoji: "🌝",
     title: "Bis zum Mond",
-    text: "Ich liebe dich bis zum Mond – und unendlich oft wieder zurück. 🚀",
+    text:
+      "Ich lieb dich bis zum Mond hinauf\n" +
+      "und tausendfach zurück im Lauf.\n" +
+      "Und ist der Mond auch mal nicht da,\n" +
+      "mein Herz bleibt dir doch immer nah.",
   },
 
   sonne: {
     emoji: "☀️",
-    title: "Mein Sonnenschein",
-    text: "Selbst an grauen Tagen bringst du mein Herz zum Leuchten. 🌻",
+    title: "Meine Sonne",
+    text:
+      "Du bist die Sonne, die mich weckt,\n" +
+      "die jeden grauen Tag entdeckt.\n" +
+      "Mein Licht, mein Strahl, mein warmer Schein –\n" +
+      "du, meine Sonne, ganz allein.",
   },
 
   lieblingsmensch: {
     emoji: "💖",
     title: "Mein Lieblingsmensch",
-    text: "Von allen Menschen auf der Welt bist du genau der eine, den ich will.",
+    text:
+      "Von Milliarden, weit und breit,\n" +
+      "bist du mein Mensch für alle Zeit.\n" +
+      "Mein Liebling, einzig, auserwählt –\n" +
+      "der eine, der für mich nur zählt.",
   },
 
   herz: {
     emoji: "💓",
     title: "Du hast mein Herz",
-    text: "Es gehört dir – ganz allein und für immer. Pass gut darauf auf. 🔐❤️",
+    text:
+      "Nimm es, es ist längst schon dein,\n" +
+      "mein Herz – es will nur bei dir sein.\n" +
+      "Pass gut drauf auf, halt es ganz warm,\n" +
+      "und leg dich nachts in meinen Arm.",
+  },
+
+  // ---- Eure ganz persönlichen Codewörter ----
+
+  prinzessin: {
+    emoji: "👑",
+    title: "Meine Prinzessin",
+    text:
+      "Trag deine Krone, steh ganz hoch,\n" +
+      "denn meine Prinzessin bist du doch.\n" +
+      "Kein Thron der Welt ist je so schön\n" +
+      "wie dich an meiner Seit zu seh'n.",
+  },
+
+  ananas: {
+    emoji: "🍍",
+    title: "Reich mit dir",
+    text:
+      "Man sagt, wer reich ist, der besitzt\n" +
+      "'ne Ananas, die stolz dort sitzt.\n" +
+      "Doch reich bin ich auf andre Art:\n" +
+      "Ich hab ja dich – wie wunderbar.",
+  },
+
+  katzen: {
+    emoji: "🐱",
+    title: "Wie ein Kätzchen",
+    text:
+      "Du liebst die Katzen, flauschig, klein,\n" +
+      "ihr leises Schnurren, weich und fein.\n" +
+      "Und so wie sie, ganz kuschelweich,\n" +
+      "schmieg ich mich an dich, liebesreich.",
+  },
+
+  mango: {
+    emoji: "🥭",
+    title: "Getrocknete Mango",
+    text:
+      "Getrocknete Mango, süß und fein,\n" +
+      "beim Lernen teilen wir sie zwein.\n" +
+      "Auf deiner Arbeit, Stück für Stück –\n" +
+      "in jedem Bissen steckt ein Glück.",
   },
 
   // Tipp: gib Sedef die Codewörter nach und nach persönlich,

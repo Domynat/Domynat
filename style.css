@@ -294,6 +294,13 @@ h1 {
   animation: pop 0.5s ease;
 }
 
+/* Gedichte mit Zeilenumbrüchen */
+.poem {
+  white-space: pre-line;
+  line-height: 1.7;
+  font-style: italic;
+}
+
 /* ---- Briefkasten ---- */
 .mailbox-input {
   font-family: "Poppins", sans-serif;
