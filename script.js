@@ -94,7 +94,7 @@ searchForm.addEventListener("submit", (e) => {
   searchScreen.classList.add("hidden");
 
   if (profile.special) {
-    // Sedefs Antrag – jetzt wird's romantisch
+    // Sedefs Antrag, jetzt wird's romantisch
     activateRomanticMode();
     card.classList.remove("hidden");
   } else {
@@ -381,7 +381,7 @@ function renderList(messages) {
   if (!messages || messages.length === 0) {
     const empty = document.createElement("p");
     empty.className = "mailbox-empty";
-    empty.textContent = "Noch keine Nachrichten – schreib die erste! 💌";
+    empty.textContent = "Noch keine Nachrichten, schreib die erste! 💌";
     mailboxList.appendChild(empty);
     return;
   }

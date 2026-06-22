@@ -1,5 +1,5 @@
 // =======================================================================
-//  HIER kannst du Namen, Geheimnisse usw. ändern. Du musst nichts können –
+//  HIER kannst du Namen, Geheimnisse usw. ändern. Du musst nichts können,
 //  einfach die Beispiele kopieren und deine Texte einsetzen.
 // =======================================================================
 //
@@ -10,7 +10,7 @@
 //  - Den Namen IMMER klein schreiben (z. B. "wim", nicht "Wim").
 //    Beim Tippen ist Groß-/Kleinschreibung dann egal.
 //  - Jede Zeile endet mit einem Komma ,
-//  - Sedef steht ganz unten und ist dein Antrag – bitte so lassen.
+//  - Sedef steht ganz unten und ist dein Antrag, bitte so lassen.
 // =======================================================================
 
 const profiles = {
@@ -19,34 +19,34 @@ const profiles = {
 
   wim: {
     emoji: "🏀",
-    title: "WIM",
-    text: "Legende auf dem Court, Bruder fürs Leben. 🏀 Im 1-gegen-1 gegen mich reden wir lieber nicht über die Statistik. 😏 Revanche steht.",
+    title: "Wim",
+    text: "Ey Wim, mein Bro. 🏀 Wann gehen wir wieder ballern? Revanche ist überfällig.",
   },
 
   maik: {
     emoji: "🎧",
-    title: "MAIK",
-    text: "DJ des Vertrauens. 🎧 Wenn Playlists ein Studienfach wären, hättest du längst den Doktor. Dreh auf.",
+    title: "Maik",
+    text: "Maik, du hast einfach die besten Playlists. 🎧 Schick mir mal wieder was Neues.",
   },
 
   marcel: {
     emoji: "🧥",
-    title: "MARCEL",
-    text: "Wandelnde Vogue-Ausgabe. 🧥 Wir tragen 'Klamotten', du trägst 'Fits'. Wie immer: ganz oben.",
+    title: "Marcel",
+    text: "Marcel, dein Style sitzt echt immer. 🧥 Wie machst du das nur, Mann?",
   },
 
   // ---- Ihre Freundinnen ----
 
   yomna: {
     emoji: "⚡",
-    title: "YOMNA",
-    text: "Wer hat dich an die Steckdose angeschlossen? ⚡ 100.000 Volt pure Energie – bleib genau so laut.",
+    title: "Yomna",
+    text: "Yomna, bei dir ist echt immer was los. ⚡ Bleib einfach so wie du bist.",
   },
 
   clara: {
     emoji: "🎮",
-    title: "CLARA",
-    text: "Final-Boss-Energie. 🎮 Auf die beste Art ein bisschen drüber – und Wim findet's heimlich mega. 👀 (du hast nichts gesehen)",
+    title: "Clara",
+    text: "Clara, du bist echt eine richtig gute Gamerin. 🎮 Und der Wim steht voll auf dich. 👀 Ich hab nichts gesagt.",
   },
 
   // ---- NICHT ändern: Das ist Sedefs großer Moment ----
@@ -72,7 +72,7 @@ const secrets = {
     text:
       "Die Sonne weckt den neuen Tag,\n" +
       "doch heller strahlt, was ich so mag.\n" +
-      "Guten Morgen, Liebste mein –\n" +
+      "Guten Morgen, Liebste mein,\n" +
       "mit dir wird jeder Tag ein Schein.",
   },
 
@@ -112,7 +112,7 @@ const secrets = {
     text:
       "Ein Jahr voll Lachen, Hand in Hand,\n" +
       "durch jedes Glück, durch jede Wand.\n" +
-      "Ich würd's sofort noch einmal wagen –\n" +
+      "Ich würd's sofort noch einmal wagen,\n" +
       "und tausend weitere Jahre tragen.",
   },
 
@@ -122,7 +122,7 @@ const secrets = {
     text:
       "Heut tanzt die Welt nur so für dich,\n" +
       "ein Kerzenmeer, ein Strahlen, sich.\n" +
-      "Alles Liebe, Schönste mein –\n" +
+      "Alles Liebe, Schönste mein,\n" +
       "heut sollst du ganz Prinzessin sein.",
   },
 
@@ -132,7 +132,7 @@ const secrets = {
     text:
       "Wenn graue Wolken dich umzieh'n,\n" +
       "lass mich dein kleiner Schirm dir blüh'n.\n" +
-      "Schlechte Tage zieh'n vorbei –\n" +
+      "Schlechte Tage zieh'n vorbei,\n" +
       "ich aber bleib, treu und dabei.",
   },
 
@@ -142,7 +142,7 @@ const secrets = {
     text:
       "Dein Lachen klingt wie schönste Musik,\n" +
       "es trifft mein Herz im Augenblick.\n" +
-      "Lächel, Liebste, nur für mich –\n" +
+      "Lächel, Liebste, nur für mich,\n" +
       "nichts auf der Welt schlägt sicherlich dich.",
   },
 
@@ -152,7 +152,7 @@ const secrets = {
     text:
       "Ein sanfter Kuss, ganz weich und leis,\n" +
       "auf deine Stirn auf meine Weis'.\n" +
-      "Schließ kurz die Augen, fühl ihn sacht –\n" +
+      "Schließ kurz die Augen, fühl ihn sacht,\n" +
       "ich hab ihn dir hierher gebracht.",
   },
 
@@ -162,7 +162,7 @@ const secrets = {
     text:
       "Ich seh uns zwei in ferner Zeit,\n" +
       "noch immer Hand in Hand, bereit.\n" +
-      "Voll Abenteuer, Lach und Glück –\n" +
+      "Voll Abenteuer, Lach und Glück,\n" +
       "mit dir will ich kein Stück zurück.",
   },
 
@@ -172,7 +172,7 @@ const secrets = {
     text:
       "Danke, dass du Ja gesagt,\n" +
       "dass du mein Herz so leicht gemacht.\n" +
-      "Danke einfach, dass du bist –\n" +
+      "Danke einfach, dass du bist,\n" +
       "das Schönste, was mir je geglückt ist.",
   },
 
@@ -190,7 +190,7 @@ const secrets = {
     emoji: "🏡",
     title: "Mein Zuhause",
     text:
-      "Kein Ort aus Stein, kein Haus, kein Raum –\n" +
+      "Kein Ort aus Stein, kein Haus, kein Raum,\n" +
       "mein Zuhause bist du, mein Traum.\n" +
       "Wo du auch bist, da will ich sein,\n" +
       "in deinen Armen heim und rein.",
@@ -202,7 +202,7 @@ const secrets = {
     text:
       "Komm, leg die Hand in meine sacht,\n" +
       "wir tanzen leis durch jede Nacht.\n" +
-      "Ob Küche, Regen, ganz egal –\n" +
+      "Ob Küche, Regen, ganz egal,\n" +
       "mit dir wird jeder Schritt total.",
   },
 
@@ -232,7 +232,7 @@ const secrets = {
     text:
       "Es tropft ans Fenster, grau und sacht,\n" +
       "doch du hast Sonne mitgebracht.\n" +
-      "Komm kuschle dich ganz nah an mich –\n" +
+      "Komm kuschle dich ganz nah an mich,\n" +
       "im Regen lieb ich nur noch dich.",
   },
 
@@ -242,7 +242,7 @@ const secrets = {
     text:
       "Du bist viel stärker, als du denkst,\n" +
       "ein Löwenherz, das Mut verschenkt.\n" +
-      "Geh nur voran, ich halte dich –\n" +
+      "Geh nur voran, ich halte dich,\n" +
       "du schaffst das alles, sicherlich.",
   },
 
@@ -262,7 +262,7 @@ const secrets = {
     text:
       "Was auch geschieht, was kommen mag,\n" +
       "ich bleib bei dir an jedem Tag.\n" +
-      "Kein Ende kennt, was uns vereint –\n" +
+      "Kein Ende kennt, was uns vereint,\n" +
       "für immer, bis kein Stern mehr scheint.",
   },
 
@@ -272,7 +272,7 @@ const secrets = {
     text:
       "Kein Gold, kein Glanz, kein Edelstein\n" +
       "kann je so wertvoll für mich sein.\n" +
-      "Mein größter Schatz, das bist nur du –\n" +
+      "Mein größter Schatz, das bist nur du,\n" +
       "ein Lächeln, und mein Herz gibt Ruh.",
   },
 
@@ -282,7 +282,7 @@ const secrets = {
     text:
       "Komm her zu mir, ich halt dich fest,\n" +
       "mein Arm dein warmes, sich'res Nest.\n" +
-      "Drück dich ganz nah, lass los die Welt –\n" +
+      "Drück dich ganz nah, lass los die Welt,\n" +
       "nur du und ich, sonst nichts mehr zählt.",
   },
 
@@ -302,7 +302,7 @@ const secrets = {
     text:
       "Du bist die Sonne, die mich weckt,\n" +
       "die jeden grauen Tag entdeckt.\n" +
-      "Mein Licht, mein Strahl, mein warmer Schein –\n" +
+      "Mein Licht, mein Strahl, mein warmer Schein,\n" +
       "du, meine Sonne, ganz allein.",
   },
 
@@ -312,7 +312,7 @@ const secrets = {
     text:
       "Von Milliarden, weit und breit,\n" +
       "bist du mein Mensch für alle Zeit.\n" +
-      "Mein Liebling, einzig, auserwählt –\n" +
+      "Mein Liebling, einzig, auserwählt,\n" +
       "der eine, der für mich nur zählt.",
   },
 
@@ -321,7 +321,7 @@ const secrets = {
     title: "Du hast mein Herz",
     text:
       "Nimm es, es ist längst schon dein,\n" +
-      "mein Herz – es will nur bei dir sein.\n" +
+      "mein Herz, es will nur bei dir sein.\n" +
       "Pass gut drauf auf, halt es ganz warm,\n" +
       "und leg dich nachts in meinen Arm.",
   },
@@ -345,7 +345,7 @@ const secrets = {
       "Man sagt, wer reich ist, der besitzt\n" +
       "'ne Ananas, die stolz dort sitzt.\n" +
       "Doch reich bin ich auf andre Art:\n" +
-      "Ich hab ja dich – wie wunderbar.",
+      "Ich hab ja dich, wie wunderbar.",
   },
 
   katzen: {
@@ -364,7 +364,7 @@ const secrets = {
     text:
       "Getrocknete Mango, süß und fein,\n" +
       "beim Lernen teilen wir sie zwein.\n" +
-      "Auf deiner Arbeit, Stück für Stück –\n" +
+      "Auf deiner Arbeit, Stück für Stück,\n" +
       "in jedem Bissen steckt ein Glück.",
   },
 
@@ -375,23 +375,23 @@ const secrets = {
 // =======================================================================
 //  GRÜNDE-KARTEN
 //  Erscheinen, wenn Sedef "Ja" sagt, und sind danach jederzeit unter
-//  "💖 Gründe für dich" abrufbar. Schreib so viele, wie du willst –
+//  "💖 Gründe für dich" abrufbar. Schreib so viele, wie du willst,
 //  einfach jede Zeile in Anführungszeichen, getrennt mit Komma.
 // =======================================================================
 
 const reasons = [
   "Weil dein Lächeln meinen ganzen Tag rettet.",
-  "Weil du meine Sonne bist – an jedem grauen Tag. ☀️",
+  "Weil du meine Sonne bist, an jedem grauen Tag. ☀️",
   "Weil getrocknete Mango mit dir tausendmal besser schmeckt. 🥭",
   "Weil du echte Prinzessinnen-Energie hast. 👑",
-  "Weil ich mit dir reich bin – ganz ohne Ananas. 🍍",
+  "Weil ich mit dir reich bin, ganz ohne Ananas. 🍍",
   "Weil du Katzen liebst und selbst so kuschelig bist. 🐱",
   "Weil ich bei dir einfach ich sein kann.",
   "Weil du mich zum Lachen bringst, auch wenn mir nicht danach ist.",
   "Weil Lernen mit dir nie langweilig wird.",
   "Weil du an mich glaubst, wenn ich es selbst nicht tue.",
   "Weil jede Minute mit dir viel zu schnell vergeht.",
-  "Weil du genau so bist, wie du bist – perfekt für mich.",
+  "Weil du genau so bist, wie du bist, perfekt für mich.",
 ];
 
 // =======================================================================

@@ -1,4 +1,4 @@
-# Sedef – Webseite 💖
+# Sedef, Webseite 💖
 
 Eine kleine romantische Webseite. Man tippt einen Namen in die Suchleiste:
 - **Sedef** → der große Antrag (Frage, Konfetti, Liebesbotschaft, dann das Menü "Unser Plätzchen" mit Zähler, geheimen Nachrichten und Briefkasten).
@@ -10,7 +10,7 @@ Eine kleine romantische Webseite. Man tippt einen Namen in die Suchleiste:
 
 Alles steht in der Datei **`profiles.js`**. Einfach den Text in den
 Anführungszeichen ändern. Wichtig: Namen immer klein schreiben, jede Zeile
-endet mit einem Komma. Den `sedef`-Eintrag so lassen – der ist der Antrag.
+endet mit einem Komma. Den `sedef`-Eintrag so lassen, der ist der Antrag.
 
 Geheime Codewörter stehen in derselben Datei unter `secrets`.
 Die "Gründe, warum ich dich mag"-Karten stehen unter `reasons`,
@@ -24,7 +24,7 @@ und die versteckten Easter Eggs (Wörter für die Suchleiste) unter
 Zwei einfache Wege:
 
 - **Privates Fenster / Inkognito-Fenster** benutzen: Dort wird beim
-  Schließen automatisch alles gelöscht – perfekt zum Ausprobieren, es
+  Schließen automatisch alles gelöscht, perfekt zum Ausprobieren, es
   bleiben keine Spuren.
 - **Reset-Link:** Öffne die Seite mit `?reset` am Ende der Adresse, z. B.
   `…/index.html?reset` (oder `https://…github.io/Domynat/?reset`).
@@ -32,10 +32,10 @@ Zwei einfache Wege:
 - **Online-Briefkasten leeren:** Hast du den geteilten Briefkasten
   eingerichtet, landen Test-Nachrichten online. Mit `?resetall` (statt
   `?reset`) werden auch diese Online-Nachrichten gelöscht. Achtung: damit
-  sind ALLE Nachrichten im Briefkasten weg – also nur zum Testen nutzen.
+  sind ALLE Nachrichten im Briefkasten weg, also nur zum Testen nutzen.
 
 Der "Zusammen seit"-Zähler startet übrigens erst, wenn man im Antrag bis
-zur Liebesbotschaft klickt – nur die Seite anschauen löst ihn nicht aus.
+zur Liebesbotschaft klickt, nur die Seite anschauen löst ihn nicht aus.
 
 ---
 
@@ -61,7 +61,7 @@ ein. Das ist EIN Klick:
    `claude/sedef-confession-site-fnfjam` und den Ordner **`/ (root)`**.
 5. Auf **Save** klicken.
 
-Nach 1–2 Minuten erscheint oben ein Link, ungefähr so:
+Nach 1,2 Minuten erscheint oben ein Link, ungefähr so:
 
 ```
 https://domynat.github.io/Domynat/
@@ -74,7 +74,7 @@ Diesen Link kannst du auf jedem Handy/Laptop öffnen. Fertig! ✅
 ## 3. Eigener Name (z. B. www.pussycats.de)
 
 Damit statt des langen GitHub-Links **deine eigene Adresse** funktioniert,
-brauchst du einen Domain-Namen. Den muss man **kaufen** (ca. 5–15 € pro Jahr).
+brauchst du einen Domain-Namen. Den muss man **kaufen** (ca. 5,15 € pro Jahr).
 
 ### a) Domain kaufen
 - Geh zu einem Anbieter wie **IONOS**, **Netcup**, **Namecheap** oder **Strato**.
@@ -86,14 +86,14 @@ brauchst du einen Domain-Namen. Den muss man **kaufen** (ca. 5–15 € pro Jahr
 Beim Anbieter gibt es einen Bereich **"DNS"** oder **"DNS-Einstellungen"**.
 Dort trägst du ein:
 
-**Für www.deinedomain.de** – einen `CNAME`-Eintrag:
+**Für www.deinedomain.de**, einen `CNAME`-Eintrag:
 ```
 Typ:  CNAME
 Name: www
 Ziel: domynat.github.io
 ```
 
-**Für die Adresse ohne www** – vier `A`-Einträge auf diese GitHub-Adressen:
+**Für die Adresse ohne www**, vier `A`-Einträge auf diese GitHub-Adressen:
 ```
 Typ: A   Name: @   Wert: 185.199.108.153
 Typ: A   Name: @   Wert: 185.199.109.153
@@ -108,7 +108,7 @@ Zurück bei GitHub unter **Settings → Pages** trägst du bei
 Minuten dauern, bis er anklickbar ist).
 
 > Sobald du die Domain gekauft hast, kann ich dir die passende **CNAME**-Datei
-> ins Projekt legen – sag mir einfach den genauen Namen.
+> ins Projekt legen, sag mir einfach den genauen Namen.
 
 DNS-Änderungen brauchen manchmal **ein paar Stunden**, bis sie überall
 funktionieren. Nicht wundern, wenn es nicht sofort klappt.
