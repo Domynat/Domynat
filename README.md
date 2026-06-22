@@ -17,10 +17,6 @@ Die "Gründe, warum ich dich mag"-Karten stehen unter `reasons`,
 und die versteckten Easter Eggs (Wörter für die Suchleiste) unter
 `easterEggs`.
 
-Eure Spotify-Songs trägst du in der Datei **`songs.js`** ein
-(Anleitung steht oben in der Datei). Der erste Song erscheint, wenn
-Sedef "Ja" sagt; alle Songs gibt es im Bereich "🎵 Unsere Songs".
-
 ---
 
 ## Vorher testen (ohne dass der Zähler "echt" startet)

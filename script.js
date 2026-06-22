@@ -143,20 +143,32 @@ const cheekyTexts = [
 let textIndex = 0;
 
 function dodge() {
-  noScale = Math.max(0.5, noScale - 0.12);
+  noScale = Math.max(0.55, noScale - 0.1);
   textIndex = Math.min(cheekyTexts.length - 1, textIndex + 1);
   noBtn.textContent = cheekyTexts[textIndex];
 
-  yesBtn.style.transform = `scale(${1 + (1 - noScale) * 1.4})`;
+  yesBtn.style.transform = `scale(${1 + (1 - noScale) * 1.0})`;
 
+  // Button an den Body hängen, damit "fixed" sich am Bildschirm orientiert
+  // (die Karte hat einen Weichzeichner, der sonst die Position verfälscht)
+  if (noBtn.parentElement !== document.body) {
+    document.body.appendChild(noBtn);
+  }
   noBtn.classList.add("runaway");
-  const maxX = window.innerWidth - noBtn.offsetWidth - 20;
-  const maxY = window.innerHeight - noBtn.offsetHeight - 20;
-  const x = Math.max(20, Math.random() * maxX);
-  const y = Math.max(20, Math.random() * maxY);
+  noBtn.style.transform = "scale(" + noScale + ")";
+
+  const margin = 12;
+  const w = noBtn.offsetWidth;
+  const h = noBtn.offsetHeight;
+  // sichtbare Fläche (auf Handys: dynamische Höhe)
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const maxX = Math.max(margin, vw - w - margin);
+  const maxY = Math.max(margin, vh - h - margin);
+  const x = margin + Math.random() * (maxX - margin);
+  const y = margin + Math.random() * (maxY - margin);
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
-  noBtn.style.transform = `scale(${noScale})`;
 }
 
 noBtn.addEventListener("mouseenter", dodge);
@@ -167,6 +179,8 @@ noBtn.addEventListener("click", (e) => {
 
 // --- Ja-Button: Konfetti & Erfolgsbildschirm ---
 yesBtn.addEventListener("click", () => {
+  // weggelaufenen Nein-Button entfernen
+  noBtn.style.display = "none";
   questionScreen.classList.add("hidden");
   yesScreen.classList.remove("hidden");
   burstConfetti();
@@ -433,64 +447,6 @@ function openMailbox() {
 }
 
 renderMailbox();
-
-// =====================================================================
-//  Unsere Songs (Spotify)
-// =====================================================================
-function spotifyEmbedSrc(url) {
-  const m = String(url).match(/track\/([A-Za-z0-9]+)/);
-  const id = m ? m[1] : String(url).trim();
-  if (!id || /HIER_DEINEN|^$/i.test(id)) return null;
-  return `https://open.spotify.com/embed/track/${id}`;
-}
-
-function makeSpotifyIframe(src) {
-  const frame = document.createElement("iframe");
-  frame.src = src;
-  frame.width = "100%";
-  frame.height = "152";
-  frame.style.borderRadius = "12px";
-  frame.style.border = "0";
-  frame.loading = "lazy";
-  frame.allow =
-    "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
-  return frame;
-}
-
-function renderSongs() {
-  const list = document.getElementById("songsList");
-  const yesSong = document.getElementById("yesSong");
-  const valid =
-    typeof songs !== "undefined"
-      ? songs.filter((s) => spotifyEmbedSrc(s.url))
-      : [];
-
-  // Song beim "Ja" (der erste in der Liste)
-  if (yesSong && valid[0]) {
-    yesSong.appendChild(makeSpotifyIframe(spotifyEmbedSrc(valid[0].url)));
-  }
-
-  // Alle Songs im Songs-Bereich
-  if (!list) return;
-  list.innerHTML = "";
-  if (valid.length === 0) {
-    const hint = document.createElement("p");
-    hint.className = "mailbox-empty";
-    hint.textContent = "Trag eure Songs in der Datei songs.js ein. 🎵";
-    list.appendChild(hint);
-    return;
-  }
-  valid.forEach((s) => {
-    if (s.note) {
-      const note = document.createElement("p");
-      note.className = "song-note";
-      note.textContent = s.note;
-      list.appendChild(note);
-    }
-    list.appendChild(makeSpotifyIframe(spotifyEmbedSrc(s.url)));
-  });
-}
-renderSongs();
 
 // =====================================================================
 //  Gründe-Karten

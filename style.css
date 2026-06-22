@@ -26,12 +26,13 @@ body {
   font-family: "Poppins", sans-serif;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #020617 100%);
   color: var(--cool-text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   min-height: 100vh;
-  overflow: hidden;
-  padding: 20px;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 24px 16px;
   position: relative;
   transition: background 0.8s ease, color 0.8s ease;
 }
@@ -304,6 +305,7 @@ body.romantic .btn--primary:hover,
 .btn--no.runaway {
   position: fixed;
   z-index: 5;
+  transform-origin: top left;
   transition: top 0.2s ease, left 0.2s ease;
 }
 
@@ -423,27 +425,6 @@ body.romantic .btn--primary:hover,
   color: var(--text);
 }
 
-/* ---- Songs (Spotify) ---- */
-.song-embed {
-  margin: 6px 0 18px;
-}
-
-.songs-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-bottom: 18px;
-  max-height: 320px;
-  overflow-y: auto;
-}
-
-.song-note {
-  font-size: 0.95rem;
-  color: var(--text);
-  margin-bottom: -8px;
-  font-weight: 500;
-}
-
 /* ---- Gründe-Karten ---- */
 .reason-card {
   background: linear-gradient(135deg, #fff, #ffe9f3);
@@ -502,11 +483,40 @@ body.romantic .btn--primary:hover,
   opacity: 1;
 }
 
+/* Die Karte passt sich der Bildschirmhöhe an; ist ein Inhalt zu groß,
+   kann INNERHALB der Karte gescrollt werden – nie wird etwas abgeschnitten. */
+.card {
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+}
+
+.search-screen {
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+}
+
+/* Schmale Handys */
 @media (max-width: 480px) {
-  h1 { font-size: 1.6rem; }
-  body.romantic h1 { font-size: 2.1rem; }
-  .card { padding: 36px 24px; }
-  .emoji-big { font-size: 52px; }
-  .search-logo { font-size: 54px; }
+  h1 { font-size: 1.5rem; }
+  body.romantic h1 { font-size: 2rem; }
+  .card { padding: 32px 22px; }
+  .emoji-big { font-size: 48px; margin-bottom: 8px; }
+  .search-logo { font-size: 50px; }
+  .subtitle { margin-bottom: 20px; }
   .love-text { font-size: 1.05rem; }
+  .btn { padding: 13px 26px; font-size: 1rem; }
+  .counter-box { min-width: 58px; padding: 12px 8px; }
+  .counter-box span { font-size: 1.5rem; }
+}
+
+/* Niedrige Bildschirme (z. B. Laptop im Querformat, Handy quer) */
+@media (max-height: 700px) {
+  .emoji-big { font-size: 44px; margin-bottom: 6px; }
+  .search-logo { font-size: 46px; margin-bottom: 12px; }
+  h1 { font-size: 1.5rem; margin-bottom: 10px; }
+  body.romantic h1 { font-size: 1.9rem; }
+  .subtitle { margin-bottom: 16px; }
+  .card { padding: 28px 26px; }
+  .hub-buttons { gap: 10px; }
+  .btn { padding: 11px 24px; }
 }
