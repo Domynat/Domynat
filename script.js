@@ -97,6 +97,10 @@ searchForm.addEventListener("submit", (e) => {
     // Sedefs Antrag, jetzt wird's romantisch
     activateRomanticMode();
     card.classList.remove("hidden");
+    // Hat sie schon einmal Ja gesagt? Dann Abkürzung zum Menü anbieten.
+    if (localStorage.getItem("togetherSince")) {
+      document.getElementById("skipBtn").classList.remove("hidden");
+    }
   } else {
     // Freundes-Karte füllen und zeigen
     profileEmoji.textContent = profile.emoji || "🙂";
