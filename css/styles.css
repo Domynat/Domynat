@@ -120,6 +120,13 @@ textarea { resize: vertical; }
 textarea:focus, input:focus, select:focus { border-color: var(--accent); }
 .input-actions { display: flex; gap: 8px; margin-top: 10px; }
 .input-actions .primary { flex: 1; }
+.mic { flex: 0 0 auto; font-size: 18px; padding: 11px 13px; }
+.mic.listening { background: var(--fat); color: #fff; border-color: var(--fat);
+  animation: pulse 1.2s ease-in-out infinite; }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--fat) 55%, transparent); }
+  50% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--fat) 0%, transparent); }
+}
 
 /* Buttons */
 button { cursor: pointer; border: none; border-radius: 12px; font-family: inherit;

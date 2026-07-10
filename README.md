@@ -10,6 +10,8 @@ Komplett **buildless** (reines HTML/CSS/JS, keine Build-Tools, keine externen CD
 
 - **KI-Schätzung** – Textfeld beschreiben („100 g Haferflocken mit Banane"), Claude schätzt
   Kalorien + Protein/Fett/Kohlenhydrate und zerlegt die Mahlzeit in Einkaufs-Zutaten.
+- **Spracheingabe** – 🎤-Button antippen, einfach sagen was du gegessen/getrunken hast; die
+  App transkribiert (deutsch) und trägt den Eintrag automatisch per KI-Schätzung ein.
 - **Tagesbudget & Restbudget** – Kalorien-Ring, Makro-Balken, Wasser-Tracking.
 - **Protein-Ampel** – separates Proteinziel mit Ampel-Warnung, wenn du deutlich darunter liegst.
 - **Wochentrend** – 7-Tage-Chart (Kalorien-Balken, Zielllinie, Protein-Verlauf) + Durchschnitte.
@@ -41,13 +43,19 @@ es gibt keinen Build-Schritt.
 
 Öffne **⚙️ Einstellungen** in der App:
 
-- **Anthropic API-Key** (`sk-ant-…`) – für die KI-Schätzung. Bekommst du unter
-  <https://console.anthropic.com>. Der Key wird **nur lokal** gespeichert und direkt an die
-  Anthropic-API geschickt (`anthropic-dangerous-direct-browser-access`). Standardmodell ist
-  `claude-haiku-4-5` (schnell & günstig); Sonnet 5 ist optional für mehr Genauigkeit.
+- **Anthropic API-Key** (`sk-ant-…`) – für die KI-Schätzung. Der Key wird **nur lokal**
+  gespeichert und direkt an die Anthropic-API geschickt
+  (`anthropic-dangerous-direct-browser-access`). Standardmodell ist `claude-haiku-4-5`
+  (schnell & günstig); Sonnet 5 ist optional für mehr Genauigkeit.
+  - Key holen: <https://console.anthropic.com/settings/keys> (Konto anlegen → „Create Key").
+    Guthaben unter *Billing* aufladen.
 - **Ziele** – Kalorien, Protein, Fett, Kohlenhydrate, Wasser.
-- **Google-Maps-API-Key** (optional) – für Restaurant-Vorschläge. „Places API (New)" muss
-  in der Google Cloud Console aktiviert sein. Ohne Key ist das Feature einfach inaktiv.
+- **Google-Maps-API-Key** (optional) – für Restaurant-Vorschläge.
+  - Key holen: <https://console.cloud.google.com/apis/credentials> → „Anmeldedaten erstellen"
+    → „API-Schlüssel".
+  - Danach **Places API (New)** aktivieren:
+    <https://console.cloud.google.com/apis/library/places.googleapis.com> → „Aktivieren".
+  - Ohne Key ist das Restaurant-Feature einfach inaktiv.
 
 ## Datenschutz
 

@@ -3,6 +3,7 @@ import { estimateMeal, generateShoppingList } from './llm.js';
 import { drawTrend } from './charts.js';
 import { recurringShoppingList, groupByCategory, listToText } from './shopping.js';
 import { getPosition, findRestaurants } from './places.js';
+import { speechSupported, createRecognizer } from './speech.js';
 
 const $ = sel => document.querySelector(sel);
 const $$ = sel => [...document.querySelectorAll(sel)];
@@ -45,6 +46,50 @@ function setupHeute() {
     store.addWater(+b.dataset.water);
     render();
   }));
+  setupMic();
+}
+
+// ---------- Spracheingabe ----------
+let recognizer = null;
+let listening = false;
+function setupMic() {
+  const micBtn = $('#btn-mic');
+  const ta = $('#entry-text');
+  if (!speechSupported()) { micBtn.hidden = true; return; }
+  const basePlaceholder = ta.placeholder;
+
+  recognizer = createRecognizer({
+    lang: 'de-DE',
+    onStart: () => {
+      listening = true;
+      micBtn.classList.add('listening');
+      micBtn.textContent = '⏹️';
+      ta.placeholder = 'Sprich jetzt … (z.B. „zwei Eier und ein Toast")';
+      ta.value = '';
+    },
+    onInterim: text => { ta.value = text; },
+    onEnd: finalText => {
+      listening = false;
+      micBtn.classList.remove('listening');
+      micBtn.textContent = '🎤';
+      ta.placeholder = basePlaceholder;
+      if (finalText) { ta.value = finalText; onEstimate(); }
+    },
+    onError: err => {
+      listening = false;
+      micBtn.classList.remove('listening');
+      micBtn.textContent = '🎤';
+      ta.placeholder = basePlaceholder;
+      if (err === 'not-allowed' || err === 'service-not-allowed') toast('Mikrofonzugriff verweigert');
+      else if (err === 'no-speech') toast('Nichts gehört – nochmal versuchen');
+      else if (err !== 'aborted') toast('Spracherkennung: ' + err);
+    },
+  });
+
+  micBtn.addEventListener('click', () => {
+    if (listening) recognizer.stop();
+    else recognizer.start();
+  });
 }
 
 async function onEstimate() {

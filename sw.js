@@ -1,6 +1,6 @@
 // Service Worker: App-Shell cachen für Offline-Nutzung.
 // API-Aufrufe (Anthropic, Google) laufen immer übers Netz und werden nicht gecacht.
-const CACHE = 'domynat-v1';
+const CACHE = 'domynat-v2';
 const SHELL = [
   './',
   './index.html',
@@ -11,6 +11,7 @@ const SHELL = [
   './js/charts.js',
   './js/shopping.js',
   './js/places.js',
+  './js/speech.js',
   './manifest.webmanifest',
   './icons/icon.svg',
 ];
