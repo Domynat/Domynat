@@ -1,0 +1,233 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#10b981" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Domynat" />
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="apple-touch-icon" href="./icons/icon-192.png" />
+<link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+<title>Domynat – Kalorien & Makros</title>
+<link rel="stylesheet" href="./css/styles.css" />
+
+<div id="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🥗</span>
+      <div>
+        <h1>Domynat</h1>
+        <p id="today-label" class="muted"></p>
+      </div>
+    </div>
+    <button id="btn-settings" class="icon-btn" title="Einstellungen" aria-label="Einstellungen">⚙️</button>
+  </header>
+
+  <main>
+    <!-- ===== Heute ===== -->
+    <section id="view-heute" class="view active">
+      <!-- Kalorien-Ring + Restbudget -->
+      <div class="card summary-card">
+        <div class="ring-wrap">
+          <svg id="kcal-ring" viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+            <circle class="ring-bg" cx="60" cy="60" r="52" />
+            <circle id="ring-fill" class="ring-fill" cx="60" cy="60" r="52" />
+          </svg>
+          <div class="ring-center">
+            <strong id="kcal-remaining">–</strong>
+            <span class="muted">kcal übrig</span>
+          </div>
+        </div>
+        <div class="summary-meta">
+          <div><span class="muted">Ziel</span><b id="kcal-goal">–</b></div>
+          <div><span class="muted">Gegessen</span><b id="kcal-eaten">–</b></div>
+          <div id="protein-light-wrap" class="light-row">
+            <span class="light" id="protein-light"></span>
+            <span><span class="muted">Protein</span> <b id="protein-eaten">–</b> / <span id="protein-goal">–</span> g</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Makro-Balken -->
+      <div class="card macro-card">
+        <div class="macro" data-macro="protein">
+          <div class="macro-head"><span>Protein</span><span class="macro-val" id="m-protein">0 g</span></div>
+          <div class="bar"><i id="bar-protein"></i></div>
+        </div>
+        <div class="macro" data-macro="carbs">
+          <div class="macro-head"><span>Kohlenhydrate</span><span class="macro-val" id="m-carbs">0 g</span></div>
+          <div class="bar"><i id="bar-carbs"></i></div>
+        </div>
+        <div class="macro" data-macro="fat">
+          <div class="macro-head"><span>Fett</span><span class="macro-val" id="m-fat">0 g</span></div>
+          <div class="bar"><i id="bar-fat"></i></div>
+        </div>
+        <div class="macro" data-macro="water">
+          <div class="macro-head"><span>Wasser</span><span class="macro-val" id="m-water">0 ml</span></div>
+          <div class="bar"><i id="bar-water"></i></div>
+          <div class="water-btns">
+            <button data-water="250">+250</button>
+            <button data-water="500">+500</button>
+            <button data-water="-250" class="ghost">−250</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eingabe -->
+      <div class="card input-card">
+        <label for="entry-text" class="field-label">Was hast du gegessen / getrunken?</label>
+        <textarea id="entry-text" rows="2" placeholder="z.B. 100 g Haferflocken mit Banane und 200 ml Milch"></textarea>
+        <div class="input-actions">
+          <button id="btn-mic" class="ghost mic" title="Per Sprache eintragen" aria-label="Spracheingabe">🎤</button>
+          <button id="btn-estimate" class="primary">🤖 Schätzen &amp; speichern</button>
+          <button id="btn-manual" class="ghost" title="Manuell eintragen">Manuell</button>
+        </div>
+        <p id="estimate-status" class="status" hidden></p>
+      </div>
+
+      <!-- Einträge heute -->
+      <div class="card">
+        <div class="card-head">
+          <h2>Einträge heute</h2>
+          <span id="entry-count" class="pill">0</span>
+        </div>
+        <ul id="entry-list" class="entry-list"></ul>
+        <p id="entry-empty" class="muted empty">Noch keine Einträge heute.</p>
+      </div>
+    </section>
+
+    <!-- ===== Trend ===== -->
+    <section id="view-trend" class="view">
+      <div class="card">
+        <div class="card-head"><h2>Wochentrend</h2><span class="muted" id="trend-range"></span></div>
+        <canvas id="trend-chart" height="220"></canvas>
+        <div class="legend">
+          <span><i class="sw sw-kcal"></i>Kalorien</span>
+          <span><i class="sw sw-goal"></i>Kalorienziel</span>
+          <span><i class="sw sw-prot"></i>Protein (g)</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Durchschnitt (7 Tage)</h2></div>
+        <div class="stat-grid">
+          <div class="stat"><b id="avg-kcal">–</b><span class="muted">kcal / Tag</span></div>
+          <div class="stat"><b id="avg-protein">–</b><span class="muted">g Protein / Tag</span></div>
+          <div class="stat"><b id="avg-water">–</b><span class="muted">ml Wasser / Tag</span></div>
+          <div class="stat"><b id="days-ontrack">–</b><span class="muted">Tage Proteinziel ✔</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Einkauf ===== -->
+    <section id="view-einkauf" class="view">
+      <div class="card">
+        <div class="card-head"><h2>Einkaufsliste</h2></div>
+        <p class="muted">Aus wiederkehrenden Zutaten deiner letzten Einträge – oder direkt per Beschreibung generieren.</p>
+        <div class="shop-controls">
+          <label>Zeitraum
+            <select id="shop-days">
+              <option value="7">7 Tage</option>
+              <option value="14" selected>14 Tage</option>
+            </select>
+          </label>
+          <button id="btn-shop-recurring" class="primary">Aus Einträgen</button>
+        </div>
+        <div class="shop-controls">
+          <input id="shop-prompt" type="text" placeholder='z.B. "3 Tage, 2000 kcal Ziel, Fokus Protein"' />
+          <button id="btn-shop-generate" class="ghost">🤖 Generieren</button>
+        </div>
+        <p id="shop-status" class="status" hidden></p>
+        <div id="shop-list" class="shop-list"></div>
+        <div id="shop-actions" class="shop-actions" hidden>
+          <button id="btn-shop-copy" class="ghost">📋 Kopieren</button>
+          <button id="btn-shop-share" class="ghost">Teilen</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Restaurant ===== -->
+    <section id="view-resto" class="view">
+      <div class="card">
+        <div class="card-head"><h2>Restaurant-Vorschläge</h2></div>
+        <p class="muted">Findet Restaurants in der Nähe, die noch in dein Restbudget (<b id="resto-budget">–</b> kcal) passen.</p>
+        <button id="btn-resto-find" class="primary">📍 In der Nähe suchen</button>
+        <p id="resto-status" class="status" hidden></p>
+        <div id="resto-list" class="resto-list"></div>
+        <p class="muted small">Benötigt einen Google-Maps-API-Key (in den Einstellungen). Ohne Key deaktiviert.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom-Navigation -->
+  <nav class="tabbar">
+    <button class="tab active" data-view="heute"><span>📊</span>Heute</button>
+    <button class="tab" data-view="trend"><span>📈</span>Trend</button>
+    <button class="tab" data-view="einkauf"><span>🛒</span>Einkauf</button>
+    <button class="tab" data-view="resto"><span>🍽️</span>Resto</button>
+  </nav>
+</div>
+
+<!-- ===== Einstellungen Dialog ===== -->
+<dialog id="settings-dialog">
+  <form method="dialog" class="dialog-body">
+    <div class="dialog-head"><h2>Einstellungen</h2><button value="cancel" class="icon-btn" aria-label="Schließen">✕</button></div>
+
+    <h3>Ziele</h3>
+    <label>Kalorienziel (kcal/Tag)<input type="number" id="set-kcal" min="0" step="10" /></label>
+    <label>Proteinziel (g/Tag)<input type="number" id="set-protein" min="0" step="5" /></label>
+    <div class="two-col">
+      <label>Fett (g)<input type="number" id="set-fat" min="0" step="5" /></label>
+      <label>Kohlenhydrate (g)<input type="number" id="set-carbs" min="0" step="5" /></label>
+    </div>
+    <label>Wasserziel (ml/Tag)<input type="number" id="set-water" min="0" step="100" /></label>
+
+    <h3>KI-Schätzung (Claude)</h3>
+    <label>Anthropic API-Key<input type="password" id="set-claude-key" placeholder="sk-ant-..." autocomplete="off" /></label>
+    <label>Modell
+      <select id="set-model">
+        <option value="claude-haiku-4-5-20251001">Haiku 4.5 (schnell &amp; günstig)</option>
+        <option value="claude-sonnet-5">Sonnet 5 (genauer)</option>
+      </select>
+    </label>
+    <p class="muted small">Der Key wird nur lokal auf deinem Gerät gespeichert und direkt an die Anthropic-API gesendet.</p>
+
+    <h3>Restaurant (optional)</h3>
+    <label>Google-Maps-API-Key<input type="password" id="set-google-key" placeholder="AIza..." autocomplete="off" /></label>
+
+    <h3>Daten</h3>
+    <div class="two-col">
+      <button type="button" id="btn-export" class="ghost">Export (JSON)</button>
+      <button type="button" id="btn-import" class="ghost">Import</button>
+    </div>
+    <input type="file" id="import-file" accept="application/json" hidden />
+
+    <div class="dialog-actions">
+      <button value="cancel" class="ghost">Abbrechen</button>
+      <button id="btn-save-settings" value="default" class="primary">Speichern</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- ===== Manuell/Bearbeiten Dialog ===== -->
+<dialog id="entry-dialog">
+  <form method="dialog" class="dialog-body">
+    <div class="dialog-head"><h2 id="entry-dialog-title">Eintrag</h2><button value="cancel" class="icon-btn" aria-label="Schließen">✕</button></div>
+    <label>Bezeichnung<input type="text" id="e-text" /></label>
+    <div class="two-col">
+      <label>Kalorien<input type="number" id="e-kcal" min="0" /></label>
+      <label>Protein (g)<input type="number" id="e-protein" min="0" step="0.1" /></label>
+    </div>
+    <div class="two-col">
+      <label>Fett (g)<input type="number" id="e-fat" min="0" step="0.1" /></label>
+      <label>Kohlenhydrate (g)<input type="number" id="e-carbs" min="0" step="0.1" /></label>
+    </div>
+    <div class="dialog-actions">
+      <button type="button" id="btn-delete-entry" class="danger" hidden>Löschen</button>
+      <button value="cancel" class="ghost">Abbrechen</button>
+      <button id="btn-save-entry" value="default" class="primary">Speichern</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" class="toast" hidden></div>
+
+<script type="module" src="./js/app.js"></script>
