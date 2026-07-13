@@ -50,7 +50,7 @@ erstellt: 2026-07-13
 1. Zahlungsreihe aufstellen: t0 = −Anschaffung; t1…tn = Einzahlungsüberschüsse; tn zusätzlich + Restwert.
 2. Jeden Betrag abzinsen: Barwert = Zahlung / (1+i)^t — Abzinsungsfaktoren notfalls einzeln ausrechnen.
 3. **C0 = Σ Barwerte − Investition.** C0 > 0 → vorteilhaft (verzinst sich über Kalkulationszins hinaus); Vergleich: höchster C0 gewinnt.
-4. Interner Zinsfuß = i, bei dem C0 = 0 (Interpretation: Effektivverzinsung); Annuität = C0 × Wiedergewinnungsfaktor (gleichmäßige Periodenbeträge).
+4. Interner Zinsfuß = i, bei dem C0 = 0 (Interpretation: Effektivverzinsung); Annuität = C0 × Wiedergewinnungsfaktor **WGF = i·(1+i)ⁿ / ((1+i)ⁿ − 1)** (übersetzt C0 in gleichmäßige Periodenbeträge).
 **Häufiger Fehler:** Restwert vergessen; Investition versehentlich abgezinst; Zins nicht als Dezimalzahl.
 
 ### Typ E: Leverage-Effekt
