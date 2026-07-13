@@ -29,6 +29,7 @@ schicht: 2 (Tools) — orchestriert Schicht 3 (Modelle) auf Basis von Schicht 1 
 | Obsidian-Vault-Zugriff | SOPs/Konzepte lesen (Kern!) | Dateizugriff auf Vault-Ordner (lokal/Sync) ODER MCP-Filesystem | → Mechanismus eintragen |
 | Websuche | Recherche (Kurse, Investing-Daten) | modellseitig/Tool | → eintragen |
 | E-Mail (Gmail) | lesen/Entwürfe | Connector | → eintragen |
+| Post Proxy | Content-Scheduling/Posting (YouTube, IG, TikTok) | API/MCP/Webhook (→ eintragen, siehe [[02_Areas/Content_Creation/SOP_Posting_PostProxy\|Posting-SOP §4]]) | YouTube aktiv; IG/TikTok → eintragen |
 | (weitere) | | | |
 
 **Pflegeregel:** Neues Tool erst in diese Tabelle + Kurzbeschreibung, DANN produktiv nutzen. Tote Tools raus (Zeile ins [[04_Archive/README_Archive|Archiv]]-Prinzip: streichen + Datum).
@@ -57,6 +58,20 @@ schicht: 2 (Tools) — orchestriert Schicht 3 (Modelle) auf Basis von Schicht 1 
 **Umsetzungs-Stand:** → eintragen (Konzept ✓ / Trigger-Mechanismus offen). Trigger-Optionen: Cron/Scheduled Task auf eigenem Rechner/Server, Claude-Code-Routine (create_trigger), oder Automationsdienst. Entscheidung + Konfiguration hier dokumentieren.
 
 **Erfolgskriterium:** Briefing ersetzt das morgendliche "Was war nochmal heute?"-Scrollen durch 30 Sekunden Lesen — wenn es das nicht tut, kürzen statt erweitern.
+
+## 4b. Content-Pipeline (Wochenzyklus)
+
+Hermes fährt den Content-Betrieb nach [[02_Areas/Content_Creation/SOP_Content_Engine|SOP_Content_Engine]] — dort steht der verbindliche Ablauf; hier nur die Hermes-Sicht:
+
+| Slot | Hermes-Aufgabe | SOP-Referenz |
+|---|---|---|
+| Mo früh | Kern-Idee aus Backlog wählen (Score-Regel), ggf. Backlog auffüllen | Engine §1 |
+| Mo | Skript-Entwurf nach Formel + Vorlage → **wartet auf menschliche Skript-Freigabe** | [[02_Areas/Content_Creation/SOP_Hook_und_Skript\|Hook-SOP]] |
+| Di/Mi | Schnittliste/Overlays/Untertitel aus dem Skript generieren (Produktion macht der Mensch) | Engine §3 |
+| Do | Plattform-Fassungen als Kits anlegen; Scheduling via Post Proxy oder Wochen-Postplan-Export → **wartet auf Posting-Freigabe** | [[02_Areas/Content_Creation/SOP_Repurposing\|Repurposing]], [[02_Areas/Content_Creation/SOP_Posting_PostProxy\|Posting-SOP]] |
+| So | Kennzahlen in Notion eintragen, Entscheidungsregeln anwenden, 3 Learnings notieren | Engine §6 |
+
+**Harte Grenzen:** Hermes veröffentlicht NIE ohne dokumentierte menschliche Freigabe (2 Gates); keine Engagement-Automation; „Freigegeben am" schreibt nur der Mensch ([[02_Areas/Content_Creation/Redaktionsplan_Notion|Redaktionsplan §3]]). **Morning-Briefing-Erweiterung (§4):** Punkt 6 ergänzen — „Content heute: geplante Posts + fehlende Freigaben".
 
 ## 5. Sicherheits- & Betriebsregeln
 

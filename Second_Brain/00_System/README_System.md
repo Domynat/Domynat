@@ -51,6 +51,7 @@ Dieses System ist bewusst so gebaut, dass die Intelligenz **im Vault** steckt, n
 | Aktie analysieren | [[02_Areas/Finanzen_Investing/Buffett_Value_Investing_SOP/SOP_Aktienanalyse\|SOP_Aktienanalyse]] |
 | Code schreiben/prüfen | [[02_Areas/Code_Standards/Persoenliche_Code_Konventionen/Konventionen\|Konventionen]] + [[02_Areas/Code_Standards/Persoenliche_Code_Konventionen/SOP_Code_Review\|SOP_Code_Review]] |
 | Französisch üben | `02_Areas/Sprachen_Franzoesisch/A2_Francais_Entreprise/` |
+| Content erstellen/posten (YouTube, IG, TikTok) | [[02_Areas/Content_Creation/SOP_Content_Engine\|SOP_Content_Engine]] (Wochenzyklus) |
 | Notion/Hermes verstehen oder erweitern | `02_Areas/Infrastruktur/` |
 | Prüfungsform-Kürzel entschlüsseln | [[00_System/Pruefungsformen_HHN\|Pruefungsformen_HHN]] |
 | Denkmodell fachübergreifend anwenden | [[00_System/Konzept_Bibliothek\|Konzept_Bibliothek]] |
